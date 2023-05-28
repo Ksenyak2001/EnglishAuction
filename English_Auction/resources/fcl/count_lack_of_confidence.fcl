@@ -1,0 +1,115 @@
+
+FUNCTION_BLOCK count_lack_of_confidence	// Block definition (there may be more than one block per file)
+
+VAR_INPUT				// Define input variables
+	acceptability : REAL;
+	significance : REAL;
+	fame : REAL;
+	type : REAL;
+END_VAR
+
+VAR_OUTPUT				// Define output variable
+	lack_of_confidence : REAL;
+END_VAR
+
+FUZZIFY acceptability			
+	TERM low := (0, 1) (2.5, 1) (5,0) ;
+	TERM avg := trian 2.5 5 7.5;
+	TERM high := (5, 0) (7.5, 1) (10,1);
+END_FUZZIFY
+
+FUZZIFY significance			
+	TERM low := (0, 1) (2.5, 1) (5,0) ;
+	TERM avg := trian 2.5 5 7.5;
+	TERM high := (5, 0) (7.5, 1) (10,1);
+END_FUZZIFY
+
+FUZZIFY fame			
+	TERM looser := (0, 1) (2.5, 1) (5,0) ;
+	TERM ordinary := trian 2.5 5 7.5;
+	TERM superstar := (5, 0) (7.5, 1) (10,1);
+END_FUZZIFY
+
+FUZZIFY type			
+	TERM one := (1, 1) (1.75, 0) ;
+	TERM two := (1.25, 0) (2, 1);
+END_FUZZIFY
+
+DEFUZZIFY lack_of_confidence		
+	TERM zero := (0,1) (1,0);
+	TERM one := trian 0 1 2;
+	TERM two := trian 1 2 3;
+	TERM three := trian 2 3 4;
+	TERM four := trian 3 4 5;
+	TERM five := trian 4 5 6;
+	TERM six := trian 5 6 7;
+	TERM seven := trian 6 7 8;
+	TERM eight := trian 7 8 9;
+	TERM nine := trian 8 9 10;
+	TERM ten := (9,0) (10,1);
+	
+	METHOD : COG;		
+	DEFAULT := -1;		
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	AND : MIN;			// Use 'min' for 'and' (also implicit use 'max' for 'or' to fulfill DeMorgan's Law)
+	ACT : MIN;			// Use 'min' activation method
+	ACCU : MAX;			// Use 'max' accumulation method
+
+	RULE 1 : IF (acceptability IS low AND significance IS low AND fame IS looser) THEN lack_of_confidence IS zero;
+	
+	RULE 2 : IF (acceptability IS low AND significance IS avg AND fame IS looser AND type IS one) THEN lack_of_confidence IS one;
+	RULE 3 : IF (acceptability IS avg AND significance IS low AND fame IS looser AND type IS two) THEN lack_of_confidence IS one;
+	
+	RULE 4 : IF (acceptability IS low AND significance IS low AND fame IS ordinary) THEN  lack_of_confidence IS two;
+	RULE 5 : IF (acceptability IS avg AND significance IS low AND fame IS looser AND type IS one) THEN  lack_of_confidence IS two;
+	RULE 6 : IF (acceptability IS low AND significance IS avg AND fame IS looser AND type IS two) THEN  lack_of_confidence IS two;
+	
+	RULE 7 : IF (acceptability IS avg AND significance IS avg AND fame IS looser AND type IS one) THEN  lack_of_confidence IS three;
+	RULE 8 : IF (acceptability IS low AND significance IS high AND fame IS looser AND type IS one) THEN  lack_of_confidence IS three;
+	RULE 9 : IF (acceptability IS low AND significance IS avg AND fame IS ordinary AND type IS two) THEN  lack_of_confidence IS three;
+	RULE 10 : IF (acceptability IS high AND significance IS low AND fame IS looser AND type IS two) THEN  lack_of_confidence IS three;
+	
+	RULE 11 : IF (acceptability IS avg AND significance IS low AND fame IS ordinary) THEN  lack_of_confidence IS four;
+	RULE 12 : IF (acceptability IS low AND significance IS low AND fame IS superstar) THEN  lack_of_confidence IS four;
+	RULE 13 : IF (acceptability IS low AND significance IS avg AND fame IS ordinary AND type IS one) THEN  lack_of_confidence IS four;
+	RULE 14 : IF (acceptability IS high AND significance IS low AND fame IS looser AND type IS one) THEN  lack_of_confidence IS four;
+	RULE 15 : IF (acceptability IS avg AND significance IS avg AND fame IS looser AND type IS two) THEN  lack_of_confidence IS four;
+	RULE 16 : IF (acceptability IS low AND significance IS high AND fame IS looser AND type IS two) THEN  lack_of_confidence IS four;
+	
+	RULE 17 : IF (acceptability IS avg AND significance IS avg AND fame IS ordinary) THEN  lack_of_confidence IS five;
+	RULE 18 : IF (acceptability IS avg AND significance IS high AND fame IS looser AND type IS one) THEN  lack_of_confidence IS five;
+	RULE 19 : IF (acceptability IS low AND significance IS avg AND fame IS superstar AND type IS one) THEN  lack_of_confidence IS five;
+	RULE 20 : IF (acceptability IS low AND significance IS high AND fame IS ordinary AND type IS one) THEN  lack_of_confidence IS five;
+	RULE 21 : IF (acceptability IS high AND significance IS avg AND fame IS looser AND type IS two) THEN  lack_of_confidence IS five;
+	RULE 22 : IF (acceptability IS avg AND significance IS low AND fame IS superstar AND type IS two) THEN  lack_of_confidence IS five;
+	RULE 23 : IF (acceptability IS high AND significance IS low AND fame IS ordinary AND type IS two) THEN  lack_of_confidence IS five;
+
+	RULE 24 : IF (acceptability IS high AND significance IS low AND fame IS superstar) THEN  lack_of_confidence IS six;
+	RULE 25 : IF (acceptability IS low AND significance IS high AND fame IS superstar AND type IS one) THEN  lack_of_confidence IS six;
+	RULE 26 : IF (acceptability IS high AND significance IS low AND fame IS ordinary AND type IS one) THEN  lack_of_confidence IS six;
+	RULE 27 : IF (acceptability IS high AND significance IS avg AND fame IS looser AND type IS one) THEN  lack_of_confidence IS six;
+	RULE 28 : IF (acceptability IS avg AND significance IS low AND fame IS superstar AND type IS one) THEN  lack_of_confidence IS six;
+	RULE 29 : IF (acceptability IS high AND significance IS high AND fame IS looser AND type IS two) THEN  lack_of_confidence IS six;
+	RULE 30 : IF (acceptability IS low AND significance IS high AND fame IS ordinary AND type IS two) THEN  lack_of_confidence IS six;
+	RULE 31 : IF (acceptability IS avg AND significance IS high AND fame IS looser AND type IS two) THEN  lack_of_confidence IS six;
+	RULE 32 : IF (acceptability IS low AND significance IS avg AND fame IS superstar AND type IS two) THEN  lack_of_confidence IS six;
+	
+	RULE 33 : IF (acceptability IS high AND significance IS avg AND fame IS ordinary) THEN  lack_of_confidence IS seven;
+	RULE 34 : IF (acceptability IS avg AND significance IS high AND fame IS ordinary) THEN  lack_of_confidence IS seven;
+	RULE 35 : IF (acceptability IS avg AND significance IS avg AND fame IS superstar) THEN  lack_of_confidence IS seven;
+	RULE 36 : IF (acceptability IS high AND significance IS high AND fame IS looser AND type IS one) THEN  lack_of_confidence IS seven;
+	RULE 37 : IF (acceptability IS low AND significance IS high AND fame IS superstar AND type IS two) THEN  lack_of_confidence IS seven;
+
+	RULE 38 : IF (acceptability IS high AND significance IS avg AND fame IS superstar) THEN  lack_of_confidence IS eight;
+	RULE 39 : IF (acceptability IS avg AND significance IS high AND fame IS superstar AND type IS one) THEN  lack_of_confidence IS eight;
+	RULE 40 : IF (acceptability IS high AND significance IS avg AND fame IS superstar AND type IS two) THEN  lack_of_confidence IS eight;
+	
+	RULE 41 : IF (acceptability IS high AND significance IS high AND fame IS ordinary AND type IS one) THEN  lack_of_confidence IS nine;
+	RULE 42 : IF (acceptability IS avg AND significance IS high AND fame IS superstar AND type IS two) THEN  lack_of_confidence IS nine;
+	
+	RULE 43 : IF (acceptability IS high AND significance IS high AND fame IS superstar) THEN  lack_of_confidence IS ten;
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK

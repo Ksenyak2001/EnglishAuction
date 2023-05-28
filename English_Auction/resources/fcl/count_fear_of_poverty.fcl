@@ -1,0 +1,85 @@
+
+FUNCTION_BLOCK count_fear_of_poverty	// Block definition (there may be more than one block per file)
+
+VAR_INPUT				// Define input variables
+	stinginess : REAL;
+	acceptability : REAL;
+	welfare : REAL;
+END_VAR
+
+VAR_OUTPUT				// Define output variable
+	fear_of_poverty : REAL;
+END_VAR
+
+FUZZIFY stinginess			
+	TERM very := (0, 1) (2.5, 1) (5,0) ;
+	TERM norm := trian 2.5 5 7.5;
+	TERM few := (5, 0) (7.5, 1) (10,1);
+END_FUZZIFY
+
+FUZZIFY acceptability			
+	TERM low := (0, 1) (2.5, 1) (5,0) ;
+	TERM avg := trian 2.5 5 7.5;
+	TERM high := (5, 0) (7.5, 1) (10,1);
+END_FUZZIFY
+
+FUZZIFY welfare			
+	TERM looser := (0, 1) (2.5, 1) (5,0) ;
+	TERM ordinary := trian 2.5 5 7.5;
+	TERM superstar := (5, 0) (7.5, 1) (10,1);
+END_FUZZIFY
+
+DEFUZZIFY fear_of_poverty		
+	TERM zero := (0,1) (1,0);
+	TERM one := trian 0 1 2;
+	TERM two := trian 1 2 3;
+	TERM three := trian 2 3 4;
+	TERM four := trian 3 4 5;
+	TERM five := trian 4 5 6;
+	TERM six := trian 5 6 7;
+	TERM seven := trian 6 7 8;
+	TERM eight := trian 7 8 9;
+	TERM nine := trian 8 9 10;
+	TERM ten := (9,0) (10,1);
+	
+	METHOD : COG;		
+	DEFAULT := -1;		
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	AND : MIN;			// Use 'min' for 'and' (also implicit use 'max' for 'or' to fulfill DeMorgan's Law)
+	ACT : MIN;			// Use 'min' activation method
+	ACCU : MAX;			// Use 'max' accumulation method
+
+	RULE 1 : IF (stinginess IS very AND acceptability IS low AND welfare IS looser) THEN fear_of_poverty IS zero;
+	RULE 2 : IF (stinginess IS norm AND acceptability IS low AND welfare IS looser) THEN fear_of_poverty IS one;
+	RULE 3 : IF (stinginess IS very AND acceptability IS avg AND welfare IS looser) THEN fear_of_poverty IS one;
+	RULE 4 : IF (stinginess IS very AND acceptability IS low AND welfare IS ordinary) THEN  fear_of_poverty IS two;
+	RULE 5 : IF (stinginess IS very AND acceptability IS avg AND welfare IS ordinary) THEN  fear_of_poverty IS three;
+	RULE 6 : IF (stinginess IS norm AND acceptability IS low AND welfare IS ordinary) THEN  fear_of_poverty IS three;
+	RULE 7 : IF (stinginess IS norm AND acceptability IS avg AND welfare IS looser) THEN  fear_of_poverty IS four;
+	RULE 8 : IF (stinginess IS few AND acceptability IS low AND welfare IS looser) THEN  fear_of_poverty IS four;
+	RULE 9 : IF (stinginess IS very AND acceptability IS high AND welfare IS looser) THEN  fear_of_poverty IS four;
+	RULE 10 : IF (stinginess IS very AND acceptability IS low AND welfare IS superstar) THEN  fear_of_poverty IS four;
+	
+	RULE 11 : IF (stinginess IS norm AND acceptability IS avg AND welfare IS ordinary) THEN  fear_of_poverty IS five;
+	RULE 12 : IF (stinginess IS very AND acceptability IS avg AND welfare IS superstar) THEN  fear_of_poverty IS five;
+	RULE 13 : IF (stinginess IS very AND acceptability IS high AND welfare IS ordinary) THEN  fear_of_poverty IS five;
+	RULE 14 : IF (stinginess IS norm AND acceptability IS low AND welfare IS superstar) THEN  fear_of_poverty IS five;
+	RULE 15 : IF (stinginess IS norm AND acceptability IS high AND welfare IS looser) THEN  fear_of_poverty IS five;
+	RULE 16 : IF (stinginess IS few AND acceptability IS low AND welfare IS ordinary) THEN  fear_of_poverty IS five;
+	RULE 17 : IF (stinginess IS few AND acceptability IS avg AND welfare IS looser) THEN  fear_of_poverty IS five;
+	
+	RULE 18 : IF (stinginess IS few AND acceptability IS low AND welfare IS superstar) THEN  fear_of_poverty IS six;
+	RULE 19 : IF (stinginess IS few AND acceptability IS high AND welfare IS looser) THEN  fear_of_poverty IS six;
+	RULE 20 : IF (stinginess IS very AND acceptability IS high AND welfare IS superstar) THEN  fear_of_poverty IS six;
+	RULE 21 : IF (stinginess IS few AND acceptability IS avg AND welfare IS ordinary) THEN  fear_of_poverty IS six;
+	RULE 22 : IF (stinginess IS norm AND acceptability IS high AND welfare IS ordinary) THEN  fear_of_poverty IS six;
+	RULE 23 : IF (stinginess IS norm AND acceptability IS avg AND welfare IS superstar) THEN  fear_of_poverty IS seven;
+	RULE 24 : IF (stinginess IS norm AND acceptability IS high AND welfare IS superstar) THEN  fear_of_poverty IS eight;
+	RULE 25 : IF (stinginess IS few AND acceptability IS avg AND welfare IS superstar) THEN  fear_of_poverty IS eight;
+	RULE 26 : IF (stinginess IS few AND acceptability IS high AND welfare IS ordinary) THEN  fear_of_poverty IS nine;
+	RULE 27 : IF (stinginess IS few AND acceptability IS high AND welfare IS superstar) THEN  fear_of_poverty IS ten;
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
