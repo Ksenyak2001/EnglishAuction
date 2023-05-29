@@ -4,6 +4,8 @@
  */
 package mephi2023.english_auction;
 
+import mephi2023.english_auction.person.Person;
+import mephi2023.english_auction.counting.CountingForLot;
 import java.util.ArrayList;
 import mephi2023.english_auction.lot.Lot;
 
@@ -54,7 +56,7 @@ public class MainDataOperations {
     private static ArrayList<Person> persons; 
     private static ArrayList<Person> participants;
     private static boolean auto;  
-    private static int lot_id; 
+    private static int lot_id = -1; 
     private static int count_pass;
 
     public static ArrayList<Person> getParticipants() {
@@ -73,6 +75,10 @@ public class MainDataOperations {
         MainDataOperations.lot_id = lot_id;
     }
 
+    public static void decreaseLot_id() {
+        MainDataOperations.lot_id--;
+    }
+    
     public static int getCount_pass() {
         return count_pass;
     }

@@ -4,17 +4,33 @@
  */
 package mephi2023.english_auction;
 
+import java.awt.Button;
+import java.util.Collection;
+import javax.swing.ComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author Kseny
  */
 public class GraphJFrame extends javax.swing.JFrame {
-
+    DataManipulation dm;
     /**
      * Creates new form GraphJFrame
      */
     public GraphJFrame() {
         initComponents();
+        chooseLotDialog.setBounds(100, 100, 500, 300);
+        chooseLotDialog.setVisible(false);
+        resultStepDialog.setBounds(100, 100, 500, 300);
+        resultStepDialog.setVisible(false);
+        choosePersonDialog.setBounds(100, 100, 550, 300);
+        choosePersonDialog.setVisible(false);
+        showPersonParamsDialog.setBounds(100, 100, 550, 400);
+        showPersonParamsDialog.setVisible(false);
+        dm = new DataManipulation();
+        closeButton.setVisible(false);
     }
 
     /**
@@ -26,71 +42,1375 @@ public class GraphJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        chooseLotDialog = new javax.swing.JDialog();
+        chooseLotPanel = new javax.swing.JPanel();
+        lot1RadioButton = new javax.swing.JRadioButton();
+        lot3RadioButton = new javax.swing.JRadioButton();
+        lot2RadioButton = new javax.swing.JRadioButton();
+        lot4RadioButton = new javax.swing.JRadioButton();
+        lot5RadioButton = new javax.swing.JRadioButton();
+        lot6RadioButton = new javax.swing.JRadioButton();
+        lot8RadioButton = new javax.swing.JRadioButton();
+        lot9RadioButton = new javax.swing.JRadioButton();
+        lot7RadioButton = new javax.swing.JRadioButton();
+        lot10RadioButton = new javax.swing.JRadioButton();
+        lot20RadioButton = new javax.swing.JRadioButton();
+        lot19RadioButton = new javax.swing.JRadioButton();
+        lot18RadioButton = new javax.swing.JRadioButton();
+        lot17RadioButton = new javax.swing.JRadioButton();
+        lot16RadioButton = new javax.swing.JRadioButton();
+        lot15RadioButton = new javax.swing.JRadioButton();
+        lot14RadioButton = new javax.swing.JRadioButton();
+        lot13RadioButton = new javax.swing.JRadioButton();
+        lot12RadioButton = new javax.swing.JRadioButton();
+        lot11RadioButton = new javax.swing.JRadioButton();
+        lot30RadioButton = new javax.swing.JRadioButton();
+        lot29RadioButton = new javax.swing.JRadioButton();
+        lot28RadioButton = new javax.swing.JRadioButton();
+        lot27RadioButton = new javax.swing.JRadioButton();
+        lot26RadioButton = new javax.swing.JRadioButton();
+        lot25RadioButton = new javax.swing.JRadioButton();
+        lot24RadioButton = new javax.swing.JRadioButton();
+        lot23RadioButton = new javax.swing.JRadioButton();
+        lot22RadioButton = new javax.swing.JRadioButton();
+        lot21RadioButton = new javax.swing.JRadioButton();
+        lot40RadioButton = new javax.swing.JRadioButton();
+        lot39RadioButton = new javax.swing.JRadioButton();
+        lot38RadioButton = new javax.swing.JRadioButton();
+        lot37RadioButton = new javax.swing.JRadioButton();
+        lot36RadioButton = new javax.swing.JRadioButton();
+        lot35RadioButton = new javax.swing.JRadioButton();
+        lot34RadioButton = new javax.swing.JRadioButton();
+        lot33RadioButton = new javax.swing.JRadioButton();
+        lot32RadioButton = new javax.swing.JRadioButton();
+        lot31RadioButton = new javax.swing.JRadioButton();
+        lot50RadioButton = new javax.swing.JRadioButton();
+        lot49RadioButton = new javax.swing.JRadioButton();
+        lot48RadioButton = new javax.swing.JRadioButton();
+        lot47RadioButton = new javax.swing.JRadioButton();
+        lot46RadioButton = new javax.swing.JRadioButton();
+        lot45RadioButton = new javax.swing.JRadioButton();
+        lot44RadioButton = new javax.swing.JRadioButton();
+        lot43RadioButton = new javax.swing.JRadioButton();
+        lot42RadioButton = new javax.swing.JRadioButton();
+        lot41RadioButton = new javax.swing.JRadioButton();
+        chooseLotLabel = new javax.swing.JLabel();
+        sellButton = new javax.swing.JButton();
+        lotsButtonGroup = new javax.swing.ButtonGroup();
+        resultStepDialog = new javax.swing.JDialog();
+        resultStepPanel = new javax.swing.JPanel();
+        seeParamsParticipantsButton = new javax.swing.JButton();
+        seeDynamicPriceButton = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
+        closeAllButton = new javax.swing.JButton();
+        choosePersonDialog = new javax.swing.JDialog();
+        choosePersonPanel = new javax.swing.JPanel();
+        partiсipantsComboBox = new javax.swing.JComboBox<>();
+        chooseParticipantLabel = new javax.swing.JLabel();
+        seePersonParamsButton = new javax.swing.JButton();
+        showPersonParamsDialog = new javax.swing.JDialog();
+        showPersonParamsPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        parametersTable = new javax.swing.JTable();
+        participantLabel = new javax.swing.JLabel();
+        closeShowParamsButton = new javax.swing.JButton();
+        startPanel = new javax.swing.JPanel();
+        startAuctionButton = new javax.swing.JButton();
+
+        chooseLotDialog.setUndecorated(true);
+        chooseLotDialog.setPreferredSize(new java.awt.Dimension(500, 300));
+
+        chooseLotPanel.setBackground(new java.awt.Color(239, 210, 190));
+
+        lotsButtonGroup.add(lot1RadioButton);
+        lot1RadioButton.setText("1");
+        lot1RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot1RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot3RadioButton);
+        lot3RadioButton.setText("3");
+        lot3RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot3RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot2RadioButton);
+        lot2RadioButton.setText("2");
+        lot2RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot2RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot4RadioButton);
+        lot4RadioButton.setText("4");
+        lot4RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot4RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot5RadioButton);
+        lot5RadioButton.setText("5");
+        lot5RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot5RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot6RadioButton);
+        lot6RadioButton.setText("6");
+        lot6RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot6RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot8RadioButton);
+        lot8RadioButton.setText("8");
+        lot8RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot8RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot9RadioButton);
+        lot9RadioButton.setText("9");
+        lot9RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot9RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot7RadioButton);
+        lot7RadioButton.setText("7");
+        lot7RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot7RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot10RadioButton);
+        lot10RadioButton.setText("10");
+        lot10RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot10RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot20RadioButton);
+        lot20RadioButton.setText("20");
+        lot20RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot20RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot19RadioButton);
+        lot19RadioButton.setText("19");
+        lot19RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot19RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot18RadioButton);
+        lot18RadioButton.setText("18");
+        lot18RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot18RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot17RadioButton);
+        lot17RadioButton.setText("17");
+        lot17RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot17RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot16RadioButton);
+        lot16RadioButton.setText("16");
+        lot16RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot16RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot15RadioButton);
+        lot15RadioButton.setText("15");
+        lot15RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot15RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot14RadioButton);
+        lot14RadioButton.setText("14");
+        lot14RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot14RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot13RadioButton);
+        lot13RadioButton.setText("13");
+        lot13RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot13RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot12RadioButton);
+        lot12RadioButton.setText("12");
+        lot12RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot12RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot11RadioButton);
+        lot11RadioButton.setText("11");
+        lot11RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot11RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot30RadioButton);
+        lot30RadioButton.setText("30");
+        lot30RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot30RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot29RadioButton);
+        lot29RadioButton.setText("29");
+        lot29RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot29RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot28RadioButton);
+        lot28RadioButton.setText("28");
+        lot28RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot28RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot27RadioButton);
+        lot27RadioButton.setText("27");
+        lot27RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot27RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot26RadioButton);
+        lot26RadioButton.setText("26");
+        lot26RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot26RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot25RadioButton);
+        lot25RadioButton.setText("25");
+        lot25RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot25RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot24RadioButton);
+        lot24RadioButton.setText("24");
+        lot24RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot24RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot23RadioButton);
+        lot23RadioButton.setText("23");
+        lot23RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot23RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot22RadioButton);
+        lot22RadioButton.setText("22");
+        lot22RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot22RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot21RadioButton);
+        lot21RadioButton.setText("21");
+        lot21RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot21RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot40RadioButton);
+        lot40RadioButton.setText("40");
+        lot40RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot40RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot39RadioButton);
+        lot39RadioButton.setText("39");
+        lot39RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot39RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot38RadioButton);
+        lot38RadioButton.setText("38");
+        lot38RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot38RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot37RadioButton);
+        lot37RadioButton.setText("37");
+        lot37RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot37RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot36RadioButton);
+        lot36RadioButton.setText("36");
+        lot36RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot36RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot35RadioButton);
+        lot35RadioButton.setText("35");
+        lot35RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot35RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot34RadioButton);
+        lot34RadioButton.setText("34");
+        lot34RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot34RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot33RadioButton);
+        lot33RadioButton.setText("33");
+        lot33RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot33RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot32RadioButton);
+        lot32RadioButton.setText("32");
+        lot32RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot32RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot31RadioButton);
+        lot31RadioButton.setText("31");
+        lot31RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot31RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot50RadioButton);
+        lot50RadioButton.setText("50");
+        lot50RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot50RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot49RadioButton);
+        lot49RadioButton.setText("49");
+        lot49RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot49RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot48RadioButton);
+        lot48RadioButton.setText("48");
+        lot48RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot48RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot47RadioButton);
+        lot47RadioButton.setText("47");
+        lot47RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot47RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot46RadioButton);
+        lot46RadioButton.setText("46");
+        lot46RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot46RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot45RadioButton);
+        lot45RadioButton.setText("45");
+        lot45RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot45RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot44RadioButton);
+        lot44RadioButton.setText("44");
+        lot44RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot44RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot43RadioButton);
+        lot43RadioButton.setText("43");
+        lot43RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot43RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot42RadioButton);
+        lot42RadioButton.setText("42");
+        lot42RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot42RadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotsButtonGroup.add(lot41RadioButton);
+        lot41RadioButton.setText("41");
+        lot41RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lot41RadioButtonActionPerformed(evt);
+            }
+        });
+
+        chooseLotLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
+        chooseLotLabel.setText("Выберите лот для продажи:");
+
+        sellButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
+        sellButton.setText("Продать");
+        sellButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sellButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout chooseLotPanelLayout = new javax.swing.GroupLayout(chooseLotPanel);
+        chooseLotPanel.setLayout(chooseLotPanelLayout);
+        chooseLotPanelLayout.setHorizontalGroup(
+            chooseLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chooseLotPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(chooseLotLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(chooseLotPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(chooseLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(sellButton)
+                    .addGroup(chooseLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(chooseLotPanelLayout.createSequentialGroup()
+                            .addComponent(lot41RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot42RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot43RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot44RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot45RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot46RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot47RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot48RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot49RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot50RadioButton))
+                        .addGroup(chooseLotPanelLayout.createSequentialGroup()
+                            .addComponent(lot31RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot32RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot33RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot34RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot35RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot36RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot37RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot38RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot39RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot40RadioButton))
+                        .addGroup(chooseLotPanelLayout.createSequentialGroup()
+                            .addComponent(lot21RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot22RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot23RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot24RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot25RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot26RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot27RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot28RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot29RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot30RadioButton))
+                        .addGroup(chooseLotPanelLayout.createSequentialGroup()
+                            .addComponent(lot11RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot12RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot13RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot14RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot15RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot16RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot17RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot18RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot19RadioButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lot20RadioButton))
+                        .addGroup(chooseLotPanelLayout.createSequentialGroup()
+                            .addComponent(lot1RadioButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(lot2RadioButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(lot3RadioButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(lot4RadioButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(lot5RadioButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(lot6RadioButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(lot7RadioButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(lot8RadioButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(lot9RadioButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(lot10RadioButton))))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        chooseLotPanelLayout.setVerticalGroup(
+            chooseLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseLotPanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(chooseLotLabel)
+                .addGap(18, 18, 18)
+                .addGroup(chooseLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lot1RadioButton)
+                    .addComponent(lot3RadioButton)
+                    .addComponent(lot2RadioButton)
+                    .addComponent(lot4RadioButton)
+                    .addComponent(lot5RadioButton)
+                    .addComponent(lot6RadioButton)
+                    .addComponent(lot7RadioButton)
+                    .addComponent(lot8RadioButton)
+                    .addComponent(lot9RadioButton)
+                    .addComponent(lot10RadioButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(chooseLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lot11RadioButton)
+                    .addComponent(lot13RadioButton)
+                    .addComponent(lot12RadioButton)
+                    .addComponent(lot14RadioButton)
+                    .addComponent(lot15RadioButton)
+                    .addComponent(lot16RadioButton)
+                    .addComponent(lot17RadioButton)
+                    .addComponent(lot18RadioButton)
+                    .addComponent(lot19RadioButton)
+                    .addComponent(lot20RadioButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(chooseLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lot21RadioButton)
+                    .addComponent(lot23RadioButton)
+                    .addComponent(lot22RadioButton)
+                    .addComponent(lot24RadioButton)
+                    .addComponent(lot25RadioButton)
+                    .addComponent(lot26RadioButton)
+                    .addComponent(lot27RadioButton)
+                    .addComponent(lot28RadioButton)
+                    .addComponent(lot29RadioButton)
+                    .addComponent(lot30RadioButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(chooseLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lot31RadioButton)
+                    .addComponent(lot33RadioButton)
+                    .addComponent(lot32RadioButton)
+                    .addComponent(lot34RadioButton)
+                    .addComponent(lot35RadioButton)
+                    .addComponent(lot36RadioButton)
+                    .addComponent(lot37RadioButton)
+                    .addComponent(lot38RadioButton)
+                    .addComponent(lot39RadioButton)
+                    .addComponent(lot40RadioButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(chooseLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lot41RadioButton)
+                    .addComponent(lot43RadioButton)
+                    .addComponent(lot42RadioButton)
+                    .addComponent(lot44RadioButton)
+                    .addComponent(lot45RadioButton)
+                    .addComponent(lot46RadioButton)
+                    .addComponent(lot47RadioButton)
+                    .addComponent(lot48RadioButton)
+                    .addComponent(lot49RadioButton)
+                    .addComponent(lot50RadioButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(sellButton)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout chooseLotDialogLayout = new javax.swing.GroupLayout(chooseLotDialog.getContentPane());
+        chooseLotDialog.getContentPane().setLayout(chooseLotDialogLayout);
+        chooseLotDialogLayout.setHorizontalGroup(
+            chooseLotDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(chooseLotPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        chooseLotDialogLayout.setVerticalGroup(
+            chooseLotDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(chooseLotPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        resultStepDialog.setPreferredSize(new java.awt.Dimension(500, 300));
+
+        resultStepPanel.setBackground(new java.awt.Color(239, 210, 190));
+        resultStepPanel.setMinimumSize(new java.awt.Dimension(500, 300));
+
+        seeParamsParticipantsButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
+        seeParamsParticipantsButton.setText("Посмотреть параметры участников");
+        seeParamsParticipantsButton.setMaximumSize(new java.awt.Dimension(470, 39));
+        seeParamsParticipantsButton.setMinimumSize(new java.awt.Dimension(470, 39));
+        seeParamsParticipantsButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        seeParamsParticipantsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seeParamsParticipantsButtonActionPerformed(evt);
+            }
+        });
+
+        seeDynamicPriceButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
+        seeDynamicPriceButton.setText("Посмотреть динамику цены");
+        seeDynamicPriceButton.setAutoscrolls(true);
+        seeDynamicPriceButton.setMaximumSize(new java.awt.Dimension(470, 39));
+        seeDynamicPriceButton.setMinimumSize(new java.awt.Dimension(470, 39));
+        seeDynamicPriceButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        seeDynamicPriceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seeDynamicPriceButtonActionPerformed(evt);
+            }
+        });
+
+        closeButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
+        closeButton.setText("Закрыть результаты");
+        closeButton.setMaximumSize(new java.awt.Dimension(470, 39));
+        closeButton.setMinimumSize(new java.awt.Dimension(470, 39));
+        closeButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
+
+        closeAllButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
+        closeAllButton.setText("Закончить анализ продажи");
+        closeAllButton.setMaximumSize(new java.awt.Dimension(470, 39));
+        closeAllButton.setMinimumSize(new java.awt.Dimension(470, 39));
+        closeAllButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        closeAllButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeAllButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout resultStepPanelLayout = new javax.swing.GroupLayout(resultStepPanel);
+        resultStepPanel.setLayout(resultStepPanelLayout);
+        resultStepPanelLayout.setHorizontalGroup(
+            resultStepPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(resultStepPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(resultStepPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(closeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                    .addComponent(seeParamsParticipantsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(seeDynamicPriceButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(closeAllButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        resultStepPanelLayout.setVerticalGroup(
+            resultStepPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(resultStepPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(seeParamsParticipantsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(seeDynamicPriceButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closeAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(120, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout resultStepDialogLayout = new javax.swing.GroupLayout(resultStepDialog.getContentPane());
+        resultStepDialog.getContentPane().setLayout(resultStepDialogLayout);
+        resultStepDialogLayout.setHorizontalGroup(
+            resultStepDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(resultStepDialogLayout.createSequentialGroup()
+                .addComponent(resultStepPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        resultStepDialogLayout.setVerticalGroup(
+            resultStepDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(resultStepDialogLayout.createSequentialGroup()
+                .addComponent(resultStepPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        choosePersonDialog.setPreferredSize(new java.awt.Dimension(500, 300));
+
+        choosePersonPanel.setBackground(new java.awt.Color(239, 210, 190));
+        choosePersonPanel.setMinimumSize(new java.awt.Dimension(550, 300));
+        choosePersonPanel.setPreferredSize(new java.awt.Dimension(550, 300));
+
+        partiсipantsComboBox.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
+        partiсipantsComboBox.setMaximumRowCount(50);
+        partiсipantsComboBox.setMinimumSize(new java.awt.Dimension(470, 38));
+        partiсipantsComboBox.setPreferredSize(new java.awt.Dimension(470, 38));
+        partiсipantsComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partiсipantsComboBoxActionPerformed(evt);
+            }
+        });
+
+        chooseParticipantLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
+        chooseParticipantLabel.setText("Выберите участника аукциона:");
+
+        seePersonParamsButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
+        seePersonParamsButton.setText("Просмотреть параметры");
+        seePersonParamsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seePersonParamsButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout choosePersonPanelLayout = new javax.swing.GroupLayout(choosePersonPanel);
+        choosePersonPanel.setLayout(choosePersonPanelLayout);
+        choosePersonPanelLayout.setHorizontalGroup(
+            choosePersonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(choosePersonPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(choosePersonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chooseParticipantLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(choosePersonPanelLayout.createSequentialGroup()
+                        .addGroup(choosePersonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(seePersonParamsButton)
+                            .addComponent(partiсipantsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 38, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        choosePersonPanelLayout.setVerticalGroup(
+            choosePersonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(choosePersonPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(chooseParticipantLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(partiсipantsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addComponent(seePersonParamsButton)
+                .addGap(66, 66, 66))
+        );
+
+        javax.swing.GroupLayout choosePersonDialogLayout = new javax.swing.GroupLayout(choosePersonDialog.getContentPane());
+        choosePersonDialog.getContentPane().setLayout(choosePersonDialogLayout);
+        choosePersonDialogLayout.setHorizontalGroup(
+            choosePersonDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(choosePersonDialogLayout.createSequentialGroup()
+                .addComponent(choosePersonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        choosePersonDialogLayout.setVerticalGroup(
+            choosePersonDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(choosePersonDialogLayout.createSequentialGroup()
+                .addComponent(choosePersonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
+        showPersonParamsPanel.setBackground(new java.awt.Color(239, 210, 190));
+        showPersonParamsPanel.setMinimumSize(new java.awt.Dimension(550, 400));
+        showPersonParamsPanel.setPreferredSize(new java.awt.Dimension(550, 400));
+
+        parametersTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Параметр", "Значение"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(parametersTable);
+
+        participantLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
+        participantLabel.setText("Параметры участника - ");
+
+        closeShowParamsButton.setText("X");
+        closeShowParamsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeShowParamsButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout showPersonParamsPanelLayout = new javax.swing.GroupLayout(showPersonParamsPanel);
+        showPersonParamsPanel.setLayout(showPersonParamsPanelLayout);
+        showPersonParamsPanelLayout.setHorizontalGroup(
+            showPersonParamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showPersonParamsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(showPersonParamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(showPersonParamsPanelLayout.createSequentialGroup()
+                        .addComponent(participantLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(closeShowParamsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        showPersonParamsPanelLayout.setVerticalGroup(
+            showPersonParamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showPersonParamsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(showPersonParamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(showPersonParamsPanelLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(closeShowParamsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(participantLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(106, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout showPersonParamsDialogLayout = new javax.swing.GroupLayout(showPersonParamsDialog.getContentPane());
+        showPersonParamsDialog.getContentPane().setLayout(showPersonParamsDialogLayout);
+        showPersonParamsDialogLayout.setHorizontalGroup(
+            showPersonParamsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showPersonParamsDialogLayout.createSequentialGroup()
+                .addComponent(showPersonParamsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        showPersonParamsDialogLayout.setVerticalGroup(
+            showPersonParamsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(showPersonParamsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        startPanel.setBackground(new java.awt.Color(239, 210, 190));
+        startPanel.setPreferredSize(new java.awt.Dimension(500, 300));
+
+        startAuctionButton.setBackground(new java.awt.Color(253, 240, 228));
+        startAuctionButton.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
+        startAuctionButton.setText("Начать Аукцион");
+        startAuctionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startAuctionButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout startPanelLayout = new javax.swing.GroupLayout(startPanel);
+        startPanel.setLayout(startPanelLayout);
+        startPanelLayout.setHorizontalGroup(
+            startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(startPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(startAuctionButton, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        startPanelLayout.setVerticalGroup(
+            startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(startPanelLayout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(startAuctionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(startPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(startPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GraphJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GraphJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GraphJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GraphJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void startAuctionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startAuctionButtonActionPerformed
+        // TODO add your handling code here:
+        //this.setVisible(false);
+        this.setVisible(false);
+        chooseLotDialog.setVisible(true);
+    }//GEN-LAST:event_startAuctionButtonActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GraphJFrame().setVisible(true);
-            }
-        });
-    }
+    private void lot6RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot6RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(6);
+    }//GEN-LAST:event_lot6RadioButtonActionPerformed
+
+    private void lot8RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot8RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(8);
+    }//GEN-LAST:event_lot8RadioButtonActionPerformed
+
+    private void lot9RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot9RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(9);
+    }//GEN-LAST:event_lot9RadioButtonActionPerformed
+
+    private void lot7RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot7RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(7);
+    }//GEN-LAST:event_lot7RadioButtonActionPerformed
+
+    private void lot10RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot10RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(10);
+    }//GEN-LAST:event_lot10RadioButtonActionPerformed
+
+    private void lot20RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot20RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(20);
+    }//GEN-LAST:event_lot20RadioButtonActionPerformed
+
+    private void lot19RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot19RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(19);
+    }//GEN-LAST:event_lot19RadioButtonActionPerformed
+
+    private void lot18RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot18RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(18);
+    }//GEN-LAST:event_lot18RadioButtonActionPerformed
+
+    private void lot17RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot17RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(17);
+    }//GEN-LAST:event_lot17RadioButtonActionPerformed
+
+    private void lot16RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot16RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(16);
+    }//GEN-LAST:event_lot16RadioButtonActionPerformed
+
+    private void lot30RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot30RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(30);
+    }//GEN-LAST:event_lot30RadioButtonActionPerformed
+
+    private void lot29RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot29RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(29);
+    }//GEN-LAST:event_lot29RadioButtonActionPerformed
+
+    private void lot28RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot28RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(28);
+    }//GEN-LAST:event_lot28RadioButtonActionPerformed
+
+    private void lot27RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot27RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(27);
+    }//GEN-LAST:event_lot27RadioButtonActionPerformed
+
+    private void lot26RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot26RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(26);
+    }//GEN-LAST:event_lot26RadioButtonActionPerformed
+
+    private void lot40RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot40RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(40);
+    }//GEN-LAST:event_lot40RadioButtonActionPerformed
+
+    private void lot39RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot39RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(39);
+    }//GEN-LAST:event_lot39RadioButtonActionPerformed
+
+    private void lot38RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot38RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(38);
+    }//GEN-LAST:event_lot38RadioButtonActionPerformed
+
+    private void lot37RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot37RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(37);
+    }//GEN-LAST:event_lot37RadioButtonActionPerformed
+
+    private void lot36RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot36RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(36);
+    }//GEN-LAST:event_lot36RadioButtonActionPerformed
+
+    private void lot50RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot50RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(50);
+    }//GEN-LAST:event_lot50RadioButtonActionPerformed
+
+    private void lot49RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot49RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(49);
+    }//GEN-LAST:event_lot49RadioButtonActionPerformed
+
+    private void lot48RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot48RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(48);
+    }//GEN-LAST:event_lot48RadioButtonActionPerformed
+
+    private void lot47RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot47RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(47);
+    }//GEN-LAST:event_lot47RadioButtonActionPerformed
+
+    private void lot46RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot46RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(46);
+    }//GEN-LAST:event_lot46RadioButtonActionPerformed
+
+    private void sellButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.decreaseLot_id();
+        int lot_id = MainDataOperations.getLot_id();
+        System.out.println(lot_id);
+        if (lot_id >= 0) {
+            dm.modelingAuction(true, lot_id);
+            chooseLotDialog.setVisible(false);
+            resultStepDialog.setVisible(true);
+        }
+    }//GEN-LAST:event_sellButtonActionPerformed
+
+    private void lot1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot1RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(1);
+    }//GEN-LAST:event_lot1RadioButtonActionPerformed
+
+    private void lot2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot2RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(2);
+    }//GEN-LAST:event_lot2RadioButtonActionPerformed
+
+    private void lot3RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot3RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(3);
+    }//GEN-LAST:event_lot3RadioButtonActionPerformed
+
+    private void lot4RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot4RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(4);
+    }//GEN-LAST:event_lot4RadioButtonActionPerformed
+
+    private void lot5RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot5RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(5);
+    }//GEN-LAST:event_lot5RadioButtonActionPerformed
+
+    private void lot11RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot11RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(11);
+    }//GEN-LAST:event_lot11RadioButtonActionPerformed
+
+    private void lot12RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot12RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(12);
+    }//GEN-LAST:event_lot12RadioButtonActionPerformed
+
+    private void lot13RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot13RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(13);
+    }//GEN-LAST:event_lot13RadioButtonActionPerformed
+
+    private void lot14RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot14RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(14);
+    }//GEN-LAST:event_lot14RadioButtonActionPerformed
+
+    private void lot15RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot15RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(15);
+    }//GEN-LAST:event_lot15RadioButtonActionPerformed
+
+    private void lot21RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot21RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(21);
+    }//GEN-LAST:event_lot21RadioButtonActionPerformed
+
+    private void lot22RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot22RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(22);
+    }//GEN-LAST:event_lot22RadioButtonActionPerformed
+
+    private void lot23RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot23RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(23);
+    }//GEN-LAST:event_lot23RadioButtonActionPerformed
+
+    private void lot24RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot24RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(24);
+    }//GEN-LAST:event_lot24RadioButtonActionPerformed
+
+    private void lot25RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot25RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(25);
+    }//GEN-LAST:event_lot25RadioButtonActionPerformed
+
+    private void lot31RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot31RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(31);
+    }//GEN-LAST:event_lot31RadioButtonActionPerformed
+
+    private void lot32RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot32RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(32);
+    }//GEN-LAST:event_lot32RadioButtonActionPerformed
+
+    private void lot33RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot33RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(33);
+    }//GEN-LAST:event_lot33RadioButtonActionPerformed
+
+    private void lot34RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot34RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(34);
+    }//GEN-LAST:event_lot34RadioButtonActionPerformed
+
+    private void lot35RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot35RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(35);
+    }//GEN-LAST:event_lot35RadioButtonActionPerformed
+
+    private void lot41RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot41RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(41);
+    }//GEN-LAST:event_lot41RadioButtonActionPerformed
+
+    private void lot42RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot42RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(42);
+    }//GEN-LAST:event_lot42RadioButtonActionPerformed
+
+    private void lot43RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot43RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(43);
+    }//GEN-LAST:event_lot43RadioButtonActionPerformed
+
+    private void lot44RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot44RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(44);
+    }//GEN-LAST:event_lot44RadioButtonActionPerformed
+
+    private void lot45RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot45RadioButtonActionPerformed
+        // TODO add your handling code here:
+        MainDataOperations.setLot_id(45);
+    }//GEN-LAST:event_lot45RadioButtonActionPerformed
+
+    private void seeParamsParticipantsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeParamsParticipantsButtonActionPerformed
+        // TODO add your handling code here:
+        partiсipantsComboBox.removeAllItems();
+        Collection<String> items = dm.getNamesParticipants().values();
+        for (String s : items){
+            partiсipantsComboBox.addItem(s);
+        }
+        //this.partiсipantsComboBox.setModel(aModel); = new JComboBox(items);
+        choosePersonDialog.setVisible(true);
+        resultStepDialog.setVisible(false);
+    }//GEN-LAST:event_seeParamsParticipantsButtonActionPerformed
+
+    private void seeDynamicPriceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeDynamicPriceButtonActionPerformed
+        // TODO add your handling code here:
+        dm.vizualizeDataset();
+        this.seeDynamicPriceButton.setVisible(false);
+        this.seeParamsParticipantsButton.setVisible(false);
+        this.closeButton.setVisible(true);
+    }//GEN-LAST:event_seeDynamicPriceButtonActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        // TODO add your handling code here:
+        dm.unvizualizeDataset();
+        this.seeDynamicPriceButton.setVisible(true);
+        this.seeParamsParticipantsButton.setVisible(true);
+        this.closeButton.setVisible(false);
+    }//GEN-LAST:event_closeButtonActionPerformed
+
+    private void seePersonParamsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seePersonParamsButtonActionPerformed
+        // TODO add your handling code here:
+        choosePersonDialog.setVisible(false);
+        int person_id = partiсipantsComboBox.getSelectedIndex();
+        participantLabel.setText("Параметры учатника - "+String.valueOf(partiсipantsComboBox.getSelectedItem()));
+        parametersTable.setModel(dm.drawModel(person_id));
+        showPersonParamsDialog.setVisible(true);
+    }//GEN-LAST:event_seePersonParamsButtonActionPerformed
+
+    private void partiсipantsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partiсipantsComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_partiсipantsComboBoxActionPerformed
+
+    private void closeShowParamsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeShowParamsButtonActionPerformed
+        // TODO add your handling code here:
+        showPersonParamsDialog.setVisible(false);
+        resultStepDialog.setVisible(true);
+    }//GEN-LAST:event_closeShowParamsButtonActionPerformed
+
+    private void closeAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeAllButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        chooseLotDialog.setVisible(false);
+        resultStepDialog.setVisible(false);
+        choosePersonDialog.setVisible(false);
+        showPersonParamsDialog.setVisible(false);
+        System.exit(0);
+    }//GEN-LAST:event_closeAllButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JDialog chooseLotDialog;
+    private javax.swing.JLabel chooseLotLabel;
+    private javax.swing.JPanel chooseLotPanel;
+    private javax.swing.JLabel chooseParticipantLabel;
+    private javax.swing.JDialog choosePersonDialog;
+    private javax.swing.JPanel choosePersonPanel;
+    private javax.swing.JButton closeAllButton;
+    private javax.swing.JButton closeButton;
+    private javax.swing.JButton closeShowParamsButton;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JRadioButton lot10RadioButton;
+    private javax.swing.JRadioButton lot11RadioButton;
+    private javax.swing.JRadioButton lot12RadioButton;
+    private javax.swing.JRadioButton lot13RadioButton;
+    private javax.swing.JRadioButton lot14RadioButton;
+    private javax.swing.JRadioButton lot15RadioButton;
+    private javax.swing.JRadioButton lot16RadioButton;
+    private javax.swing.JRadioButton lot17RadioButton;
+    private javax.swing.JRadioButton lot18RadioButton;
+    private javax.swing.JRadioButton lot19RadioButton;
+    private javax.swing.JRadioButton lot1RadioButton;
+    private javax.swing.JRadioButton lot20RadioButton;
+    private javax.swing.JRadioButton lot21RadioButton;
+    private javax.swing.JRadioButton lot22RadioButton;
+    private javax.swing.JRadioButton lot23RadioButton;
+    private javax.swing.JRadioButton lot24RadioButton;
+    private javax.swing.JRadioButton lot25RadioButton;
+    private javax.swing.JRadioButton lot26RadioButton;
+    private javax.swing.JRadioButton lot27RadioButton;
+    private javax.swing.JRadioButton lot28RadioButton;
+    private javax.swing.JRadioButton lot29RadioButton;
+    private javax.swing.JRadioButton lot2RadioButton;
+    private javax.swing.JRadioButton lot30RadioButton;
+    private javax.swing.JRadioButton lot31RadioButton;
+    private javax.swing.JRadioButton lot32RadioButton;
+    private javax.swing.JRadioButton lot33RadioButton;
+    private javax.swing.JRadioButton lot34RadioButton;
+    private javax.swing.JRadioButton lot35RadioButton;
+    private javax.swing.JRadioButton lot36RadioButton;
+    private javax.swing.JRadioButton lot37RadioButton;
+    private javax.swing.JRadioButton lot38RadioButton;
+    private javax.swing.JRadioButton lot39RadioButton;
+    private javax.swing.JRadioButton lot3RadioButton;
+    private javax.swing.JRadioButton lot40RadioButton;
+    private javax.swing.JRadioButton lot41RadioButton;
+    private javax.swing.JRadioButton lot42RadioButton;
+    private javax.swing.JRadioButton lot43RadioButton;
+    private javax.swing.JRadioButton lot44RadioButton;
+    private javax.swing.JRadioButton lot45RadioButton;
+    private javax.swing.JRadioButton lot46RadioButton;
+    private javax.swing.JRadioButton lot47RadioButton;
+    private javax.swing.JRadioButton lot48RadioButton;
+    private javax.swing.JRadioButton lot49RadioButton;
+    private javax.swing.JRadioButton lot4RadioButton;
+    private javax.swing.JRadioButton lot50RadioButton;
+    private javax.swing.JRadioButton lot5RadioButton;
+    private javax.swing.JRadioButton lot6RadioButton;
+    private javax.swing.JRadioButton lot7RadioButton;
+    private javax.swing.JRadioButton lot8RadioButton;
+    private javax.swing.JRadioButton lot9RadioButton;
+    private javax.swing.ButtonGroup lotsButtonGroup;
+    private javax.swing.JTable parametersTable;
+    private javax.swing.JLabel participantLabel;
+    private javax.swing.JComboBox<String> partiсipantsComboBox;
+    private javax.swing.JDialog resultStepDialog;
+    private javax.swing.JPanel resultStepPanel;
+    private javax.swing.JButton seeDynamicPriceButton;
+    private javax.swing.JButton seeParamsParticipantsButton;
+    private javax.swing.JButton seePersonParamsButton;
+    private javax.swing.JButton sellButton;
+    private javax.swing.JDialog showPersonParamsDialog;
+    private javax.swing.JPanel showPersonParamsPanel;
+    private javax.swing.JButton startAuctionButton;
+    private javax.swing.JPanel startPanel;
     // End of variables declaration//GEN-END:variables
 }

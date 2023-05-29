@@ -5,7 +5,7 @@
 package mephi2023.english_auction.lot;
 
 import java.util.ArrayList;
-import mephi2023.english_auction.CountFCL;
+import mephi2023.english_auction.counting.CountFCL;
 
 /**
  *

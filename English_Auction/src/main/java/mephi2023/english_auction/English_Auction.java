@@ -4,12 +4,6 @@
 
 package mephi2023.english_auction;
 
-import mephi2023.english_auction.lot.Lot;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 /**
  *
@@ -18,9 +12,17 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 public class English_Auction {
 
     public static void main(String[] args) {
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new GraphJFrame().setVisible(true);
+            }
+        });
+    }
+    /*{
         DataManipulation dm = new DataManipulation();
         dm.modelingAuction(true, 0);
-    }
+    }*/
         /*String fileName = ".\\resources\\Вар6_приложение1.xlsx";
         
         //ЗАГРУЗКА ПАРАМЕТРОВ

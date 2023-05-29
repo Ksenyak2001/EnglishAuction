@@ -4,20 +4,35 @@
  */
 package mephi2023.english_auction;
 
+import mephi2023.english_auction.auction.HistoryManipulation;
+import mephi2023.english_auction.work_with_files.FileNamesStorage;
+import mephi2023.english_auction.work_with_files.DataReader;
+import mephi2023.english_auction.person.Person;
+import mephi2023.english_auction.auction.Auction;
+import mephi2023.english_auction.counting.CountingForPerson;
+import mephi2023.english_auction.counting.CountingForLotWithPerson;
+import mephi2023.english_auction.graph.LineChart;
+import mephi2023.english_auction.graph.Dataset;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import mephi2023.english_auction.lot.Lot;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.ui.RefineryUtilities;
 
 /**
  *
  * @author Kseny
  */
 public class DataManipulation {
-    public DataManipulation(){
-        
+    HistoryManipulation hm;
+    public DataManipulation(){        
+        hm = new HistoryManipulation();
     }
     
     private void loadData(){
@@ -164,7 +179,7 @@ public class DataManipulation {
         double max_rate_of_price_increase = -1;
         for (Person p : participants){
             System.out.print("Степень повышения цены : ");
-            CountingForPerson.countRate_of_price_increase(".\\resources\\fcl\\count_rate_of_price_increase.fcl",  p);
+            CountingForPerson.countRate_of_price_increase( FileNamesStorage.getRate_of_price_increase_fileName(),  p);
             if (p.getRate_of_price_increase() > max_rate_of_price_increase){
                 max_rate_of_price_increase = p.getRate_of_price_increase();
             }
@@ -175,23 +190,103 @@ public class DataManipulation {
         checkParticipants();
     }
     
+    private void initializeDataset(){        
+        Dataset dataset = new Dataset("График для лота " + 
+                (MainDataOperations.getLot_id()+1));
+        XYDataset dataset_lot = dataset.createDataset(0,0);
+        hm.addDatasets(dataset);
+        hm.addDatasets_lots(dataset_lot);
+    }
+    LineChart demo;
+    public void vizualizeDataset(){        
+        demo = new LineChart("График для лота " + 
+                (MainDataOperations.getLot_id()+1), hm.getTemp_dataset_lot());
+        demo.pack();
+        RefineryUtilities.centerFrameOnScreen(demo);
+        demo.setVisible(true);
+    }
+    public void unvizualizeDataset(){
+        demo.dispose();
+    }
+    
+    public Map<Integer, String> getNamesParticipants(){
+        Map<Integer,String> namesPersons = new HashMap<Integer,String>();
+        ArrayList<Person> persons = MainDataOperations.getPersons();
+        for (int i = 0; i < persons.size(); ++i){
+            namesPersons.put(i, persons.get(i).getName());
+        }
+        return namesPersons;
+    }
+    public DefaultTableModel drawModel(int person_id){
+        ArrayList<Person> persons = MainDataOperations.getPersons();
+        Person person = persons.get(person_id);
+
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Благосостояние");
+        names.add("Необходимость в лоте");
+        names.add("Скупость");
+        names.add("Тип участника");
+        names.add("Самоуверенность");
+        names.add("Желание рисковать");
+        names.add("Приемлимость цены");
+        names.add("Страх бедности");
+        names.add("Неуверенности в товаре");
+        names.add("Азарт");
+        names.add("Уверенность в себе");
+        names.add("Страх потери");
+        
+        ArrayList<Object> parameters = new ArrayList<>();
+        parameters.add(person.getWelfare());
+        parameters.add(person.getNeed_one_lot());
+        parameters.add(person.getStinginess());
+        parameters.add(person.getPlayer_type());
+        parameters.add(person.getSelf_confidence());
+        parameters.add(person.getRisk_appetite());
+        parameters.add(person.getAcceptability());
+        parameters.add(person.getFear_of_poverty());
+        parameters.add(person.getLack_of_confidence());
+        parameters.add(person.getExcitement());
+        parameters.add(person.getAssurance());
+        parameters.add(person.getFear_of_loss());
+        
+        return getModel(parameters, names);
+    }
+    private DefaultTableModel getModel(ArrayList<Object> parameters, 
+            ArrayList<String> names){
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Параметр");
+        model.addColumn("Значение");
+        
+        
+        for (int i = 0; i < names.size(); i++) {
+            Object[] values = new Object[names.size()+1];
+            values[0] = names.get(i);
+            values[1] = parameters.get(i);
+            model.addRow(values);
+        }
+        return model;
+    }
+    
     public void modelingAuction(boolean auto, int lot_id){
         loadData();
+        startAuction(auto, lot_id);
+        initializeDataset();
+        int n = MainDataOperations.getPersons().size(), numb_step = 1;
         
         //НАЧАЛО ЦИКЛА
-        startAuction(auto, lot_id);
-        int n = MainDataOperations.getPersons().size();
-        
         while(MainDataOperations.getCount_pass() != n){
             priceAcceptabilityCalculation();
             auctionEffectsCalculation();
             emotionsCalculation();
             activeParicipationDecision();
             rateOfPriceIncreaseDecision();
-            
+            hm.setTemp_dataset_lot(hm.getTemp_dataset().createDataset(numb_step, Auction.getPrev_price()));
+            numb_step++;
         //КОНЕЦ ЦИКЛА
         }
         System.out.println(Auction.getLeader().getName());
+        System.out.println(Auction.getPrev_price());
+        //vizualizeDataset();
     }
     
 }

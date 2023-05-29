@@ -48,7 +48,111 @@
             <artifactId>log4j-core</artifactId>
             <version>2.20.0</version>
         </dependency>
+        
+        <dependency>
+            <groupId>org.jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+
     </dependencies>
     
+    
+    
+    <build>
+       <plugins>           
+           
+           <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                   ${basedir}/target/resources
+                            </outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>resources</directory>
+                                    <includes>
+                                        <include>**/*.xlsx</include>
+                                        <include>**/*.fcl</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <configuration>
+              <archive>
+                <manifest>
+                  <mainClass>mephi2023.english_auction.English_Auction</mainClass>
+                </manifest>
+              </archive>
+              <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+            <executions>
+              <execution>
+                <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                <phase>package</phase> <!-- bind to the packaging phase -->
+                <goals>
+                  <goal>single</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                  <execution>
+                    <id>copy-dependencies</id>
+                    <phase>prepare-package</phase>
+                    <goals>
+                      <goal>copy-dependencies</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>
+                            ${project.build.directory}/lib
+                        </outputDirectory>
+                    </configuration>
+                  </execution>
+                </executions>
+            </plugin>
+            <plugin>  
+                <!-- Build an executable JAR -->  
+                
+                <artifactId>maven-jar-plugin</artifactId>  
+                <version>3.3.0</version> 
+                <configuration>
+                    <archive>  
+                        <manifest>
+                            <addClasspath>true</addClasspath>  
+                            <classpathPrefix>lib/</classpathPrefix>  
+                        </manifest>
+                        <manifestEntries>
+                            <Main-Class>mephi2023.english_auction.English_Auction</Main-Class>
+                        </manifestEntries>  
+                    </archive>  
+                </configuration>
+                <executions>
+                </executions>  
+            </plugin>
+             
+       </plugins>
+   </build>
     
 </project>

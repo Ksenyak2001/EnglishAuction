@@ -1,0 +1,174 @@
+
+FUNCTION_BLOCK count_assurance	// Block definition (there may be more than one block per file)
+
+VAR_INPUT				// Define input variables
+	welfare : REAL;
+	self_confidence : REAL;
+	activity : REAL;
+	auction_growth : REAL;
+	dif : REAL;
+END_VAR
+
+VAR_OUTPUT				// Define output variable
+	assurance : REAL;
+END_VAR
+
+FUZZIFY welfare			
+	TERM low := (0, 1) (2.5, 1) (5,0) ;
+	TERM avg := trian 2.5 5 7.5;
+	TERM high := (5, 0) (7.5, 1) (10,1);
+END_FUZZIFY
+
+FUZZIFY self_confidence		
+	TERM low := (0, 1) (2.5, 1) (5,0) ;
+	TERM avg := trian 2.5 5 7.5;
+	TERM high := (5, 0) (7.5, 1) (10,1);
+END_FUZZIFY
+
+FUZZIFY activity			
+	TERM low := (-1, 1) (-0.5, 1) (0,0) ;
+	TERM avg := trian -0.5 0 0.5;
+	TERM high := (0, 0) (0.5, 1) (1,1);
+END_FUZZIFY
+
+FUZZIFY auction_growth		
+	TERM low := (-1, 1) (-0.5, 1) (0,0) ;
+	TERM avg := trian -0.5 0 0.5;
+	TERM high := (0, 0) (0.5, 1) (1,1);
+END_FUZZIFY
+
+FUZZIFY dif		
+	TERM low := (-1, 1) (-0.5, 1) (0,0) ;
+	TERM avg := trian -0.5 0 0.5;
+	TERM high := (0, 0) (0.5, 1) (1,1);
+END_FUZZIFY
+
+DEFUZZIFY assurance		
+	TERM zero := (0,1) (1,0);
+	TERM one := trian 0 1 2;
+	TERM two := trian 1 2 3;
+	TERM three := trian 2 3 4;
+	TERM four := trian 3 4 5;
+	TERM five := trian 4 5 6;
+	TERM six := trian 5 6 7;
+	TERM seven := trian 6 7 8;
+	TERM eight := trian 7 8 9;
+	TERM nine := trian 8 9 10;
+	TERM ten := (9,0) (10,1);
+	
+	METHOD : COG;		
+	DEFAULT := -2;		
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	AND : MIN;			// Use 'min' for 'and' (also implicit use 'max' for 'or' to fulfill DeMorgan's Law)
+	ACT : MIN;			// Use 'min' activation method
+	ACCU : MAX;			// Use 'max' accumulation method
+
+	RULE 1 : IF (welfare IS low AND self_confidence IS low AND activity IS low AND auction_growth IS low AND dif IS low) THEN assurance IS zero;
+	
+	RULE 2 : IF (welfare IS avg AND self_confidence IS low AND activity IS low AND auction_growth IS low AND dif IS low) THEN assurance IS one;
+	RULE 3 : IF (welfare IS low AND self_confidence IS avg AND activity IS low AND auction_growth IS low AND dif IS low) THEN assurance IS one;
+	RULE 4 : IF (welfare IS low AND self_confidence IS low AND activity IS avg AND auction_growth IS low AND dif IS low) THEN assurance IS one;
+	RULE 5 : IF (welfare IS low AND self_confidence IS low AND activity IS low AND auction_growth IS avg AND dif IS low) THEN assurance IS one;
+	RULE 6 : IF (welfare IS low AND self_confidence IS low AND activity IS low AND auction_growth IS low AND dif IS avg) THEN assurance IS one;
+	
+	RULE 7 : IF (welfare IS low AND self_confidence IS low AND activity IS low AND auction_growth IS avg AND dif IS avg) THEN assurance IS two;
+	RULE 8 : IF (welfare IS low AND self_confidence IS low AND activity IS avg AND auction_growth IS low AND dif IS avg) THEN assurance IS two;
+	RULE 9 : IF (welfare IS low AND self_confidence IS avg AND activity IS low AND auction_growth IS low AND dif IS avg) THEN assurance IS two;
+	RULE 10 : IF (welfare IS avg AND self_confidence IS low AND activity IS low AND auction_growth IS low AND dif IS avg) THEN assurance IS two;
+	RULE 11 : IF (welfare IS low AND self_confidence IS low AND activity IS avg AND auction_growth IS avg AND dif IS low) THEN assurance IS two;
+	RULE 12 : IF (welfare IS low AND self_confidence IS avg AND activity IS low AND auction_growth IS avg AND dif IS low) THEN assurance IS two;
+	RULE 13 : IF (welfare IS avg AND self_confidence IS low AND activity IS low AND auction_growth IS avg AND dif IS low) THEN assurance IS two;
+	RULE 14 : IF (welfare IS low AND self_confidence IS avg AND activity IS avg AND auction_growth IS low AND dif IS low) THEN assurance IS two;
+	RULE 15 : IF (welfare IS avg AND self_confidence IS low AND activity IS avg AND auction_growth IS low AND dif IS low) THEN assurance IS two;
+	RULE 16 : IF (welfare IS avg AND self_confidence IS avg AND activity IS low AND auction_growth IS low AND dif IS low) THEN assurance IS two;
+	
+	RULE 17 : IF (welfare IS low AND self_confidence IS low AND activity IS avg AND auction_growth IS avg AND dif IS avg) THEN assurance IS three;
+	RULE 18 : IF (welfare IS low AND self_confidence IS avg AND activity IS low AND auction_growth IS avg AND dif IS avg) THEN assurance IS three;
+	RULE 19 : IF (welfare IS low AND self_confidence IS avg AND activity IS avg AND auction_growth IS low AND dif IS avg) THEN assurance IS three;
+	RULE 20 : IF (welfare IS low AND self_confidence IS avg AND activity IS avg AND auction_growth IS avg AND dif IS low) THEN assurance IS three;
+	RULE 21 : IF (welfare IS avg AND self_confidence IS low AND activity IS low AND auction_growth IS avg AND dif IS avg) THEN assurance IS three;
+	RULE 22 : IF (welfare IS avg AND self_confidence IS low AND activity IS avg AND auction_growth IS low AND dif IS avg) THEN assurance IS three;
+	RULE 23 : IF (welfare IS avg AND self_confidence IS low AND activity IS avg AND auction_growth IS avg AND dif IS low) THEN assurance IS three;
+	RULE 24 : IF (welfare IS avg AND self_confidence IS avg AND activity IS low AND auction_growth IS low AND dif IS avg) THEN assurance IS three;
+	RULE 25 : IF (welfare IS avg AND self_confidence IS avg AND activity IS low AND auction_growth IS avg AND dif IS low) THEN assurance IS three;
+	RULE 26 : IF (welfare IS avg AND self_confidence IS avg AND activity IS avg AND auction_growth IS low AND dif IS low) THEN assurance IS three;
+	
+	RULE 27 : IF (welfare IS low AND self_confidence IS avg AND activity IS avg AND auction_growth IS avg AND dif IS avg) THEN assurance IS four;
+	RULE 28 : IF (welfare IS avg AND self_confidence IS low AND activity IS avg AND auction_growth IS avg AND dif IS avg) THEN assurance IS four;
+	RULE 29 : IF (welfare IS avg AND self_confidence IS avg AND activity IS low AND auction_growth IS avg AND dif IS avg) THEN assurance IS four;
+	RULE 30 : IF (welfare IS avg AND self_confidence IS avg AND activity IS avg AND auction_growth IS low AND dif IS avg) THEN assurance IS four;
+	RULE 31 : IF (welfare IS avg AND self_confidence IS avg AND activity IS avg AND auction_growth IS avg AND dif IS low) THEN assurance IS four;
+	RULE 32 : IF (welfare IS low AND self_confidence IS low AND activity IS low AND auction_growth IS low AND dif IS high) THEN assurance IS four;
+	RULE 33 : IF (welfare IS low AND self_confidence IS low AND activity IS low AND auction_growth IS high AND dif IS low) THEN assurance IS four;
+	RULE 34 : IF (welfare IS low AND self_confidence IS low AND activity IS high AND auction_growth IS low AND dif IS low) THEN assurance IS four;
+	RULE 35 : IF (welfare IS low AND self_confidence IS high AND activity IS low AND auction_growth IS low AND dif IS low) THEN assurance IS four;
+	RULE 36 : IF (welfare IS high AND self_confidence IS low AND activity IS low AND auction_growth IS low AND dif IS low) THEN assurance IS four;
+	
+	RULE 37 : IF (welfare IS avg AND self_confidence IS avg AND activity IS avg AND auction_growth IS avg AND dif IS avg) THEN assurance IS five;
+	RULE 38 : IF (welfare IS low AND self_confidence IS low AND activity IS low AND auction_growth IS high AND dif IS high) THEN assurance IS five;
+	RULE 39 : IF (welfare IS low AND self_confidence IS low AND activity IS high AND auction_growth IS low AND dif IS high) THEN assurance IS five;
+	RULE 40 : IF (welfare IS low AND self_confidence IS high AND activity IS low AND auction_growth IS low AND dif IS high) THEN assurance IS five;
+	RULE 41 : IF (welfare IS high AND self_confidence IS low AND activity IS low AND auction_growth IS low AND dif IS high) THEN assurance IS five;
+	RULE 42 : IF (welfare IS low AND self_confidence IS low AND activity IS high AND auction_growth IS high AND dif IS low) THEN assurance IS five;
+	RULE 43 : IF (welfare IS low AND self_confidence IS high AND activity IS low AND auction_growth IS high AND dif IS low) THEN assurance IS five;
+	RULE 44 : IF (welfare IS high AND self_confidence IS low AND activity IS low AND auction_growth IS high AND dif IS low) THEN assurance IS five;
+	RULE 45 : IF (welfare IS low AND self_confidence IS high AND activity IS high AND auction_growth IS low AND dif IS low) THEN assurance IS five;
+	RULE 46 : IF (welfare IS high AND self_confidence IS low AND activity IS high AND auction_growth IS low AND dif IS low) THEN assurance IS five;
+	RULE 47 : IF (welfare IS high AND self_confidence IS high AND activity IS low AND auction_growth IS low AND dif IS low) THEN assurance IS five;
+	
+	RULE 48 : IF (welfare IS avg AND self_confidence IS avg AND activity IS avg AND auction_growth IS avg AND dif IS high) THEN assurance IS six;
+	RULE 49 : IF (welfare IS avg AND self_confidence IS avg AND activity IS avg AND auction_growth IS high AND dif IS avg) THEN assurance IS six;
+	RULE 50 : IF (welfare IS avg AND self_confidence IS avg AND activity IS high AND auction_growth IS avg AND dif IS avg) THEN assurance IS six;
+	RULE 51 : IF (welfare IS avg AND self_confidence IS high AND activity IS avg AND auction_growth IS avg AND dif IS avg) THEN assurance IS six;
+	RULE 52 : IF (welfare IS high AND self_confidence IS avg AND activity IS avg AND auction_growth IS avg AND dif IS avg) THEN assurance IS six;
+	RULE 53 : IF ((welfare IS low OR welfare IS avg) AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS avg OR activity IS high) AND (auction_growth IS avg OR auction_growth IS high) AND (dif IS avg OR dif IS high)) THEN assurance IS six;
+	RULE 54 : IF ((welfare IS low OR welfare IS avg) AND (self_confidence IS avg OR self_confidence IS high) AND (activity IS low OR activity IS avg) AND (auction_growth IS avg OR auction_growth IS high) AND (dif IS avg OR dif IS high)) THEN assurance IS six;
+	RULE 55 : IF ((welfare IS low OR welfare IS avg) AND (self_confidence IS avg OR self_confidence IS high) AND (activity IS avg OR activity IS high) AND (auction_growth IS low OR auction_growth IS avg) AND (dif IS avg OR dif IS high)) THEN assurance IS six;
+	RULE 56 : IF ((welfare IS low OR welfare IS avg) AND (self_confidence IS avg OR self_confidence IS high) AND (activity IS avg OR activity IS high) AND (auction_growth IS avg OR auction_growth IS high) AND (dif IS low OR dif IS avg)) THEN assurance IS six;
+	RULE 57 : IF ((welfare IS avg OR welfare IS high) AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND (auction_growth IS avg OR auction_growth IS high) AND (dif IS avg OR dif IS high)) THEN assurance IS six;
+	RULE 58 : IF ((welfare IS avg OR welfare IS high) AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS avg OR activity IS high) AND (auction_growth IS low OR auction_growth IS avg) AND (dif IS avg OR dif IS high)) THEN assurance IS six;
+	RULE 59 : IF ((welfare IS avg OR welfare IS high) AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS avg OR activity IS high) AND (auction_growth IS avg OR auction_growth IS high) AND (dif IS low OR dif IS avg)) THEN assurance IS six;
+	RULE 60 : IF ((welfare IS avg OR welfare IS high) AND (self_confidence IS avg OR self_confidence IS high) AND (activity IS low OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) AND (dif IS avg OR dif IS high)) THEN assurance IS six;
+	RULE 61 : IF ((welfare IS avg OR welfare IS high) AND (self_confidence IS avg OR self_confidence IS high) AND (activity IS low OR activity IS avg) AND (auction_growth IS avg OR auction_growth IS high) AND (dif IS low OR dif IS avg)) THEN assurance IS six;
+	RULE 62 : IF ((welfare IS avg OR welfare IS high) AND (self_confidence IS avg OR self_confidence IS high) AND (activity IS avg OR activity IS high) AND (auction_growth IS low OR auction_growth IS avg) AND  (dif IS low OR dif IS avg)) THEN assurance IS six;
+	
+	RULE 63 : IF (welfare IS avg AND self_confidence IS avg AND activity IS avg AND auction_growth IS high AND dif IS high) THEN assurance IS seven;
+	RULE 64 : IF (welfare IS avg AND self_confidence IS avg AND activity IS high AND auction_growth IS avg AND dif IS high) THEN assurance IS seven;
+	RULE 65 : IF (welfare IS avg AND self_confidence IS high AND activity IS avg AND auction_growth IS avg AND dif IS high) THEN assurance IS seven;
+	RULE 66 : IF (welfare IS high AND self_confidence IS avg AND activity IS avg AND auction_growth IS avg AND dif IS high) THEN assurance IS seven;
+	RULE 67 : IF (welfare IS avg AND self_confidence IS avg AND activity IS high AND auction_growth IS high AND dif IS avg) THEN assurance IS seven;
+	RULE 68 : IF (welfare IS avg AND self_confidence IS high AND activity IS avg AND auction_growth IS high AND dif IS avg) THEN assurance IS seven;
+	RULE 69 : IF (welfare IS high AND self_confidence IS avg AND activity IS avg AND auction_growth IS high AND dif IS avg) THEN assurance IS seven;
+	RULE 70 : IF (welfare IS avg AND self_confidence IS high AND activity IS high AND auction_growth IS avg AND dif IS avg) THEN assurance IS seven;
+	RULE 71 : IF (welfare IS high AND self_confidence IS avg AND activity IS high AND auction_growth IS avg AND dif IS avg) THEN assurance IS seven;
+	RULE 72 : IF (welfare IS high AND self_confidence IS high AND activity IS avg AND auction_growth IS avg AND dif IS avg) THEN assurance IS seven;
+	RULE 73 : IF (welfare IS low AND self_confidence IS high AND activity IS high AND auction_growth IS high AND dif IS high) THEN assurance IS seven;
+	RULE 74 : IF (welfare IS high AND self_confidence IS low AND activity IS high AND auction_growth IS high AND dif IS high) THEN assurance IS seven;
+	RULE 75: IF (welfare IS high AND self_confidence IS high AND activity IS low AND auction_growth IS high AND dif IS high) THEN assurance IS seven;
+	RULE 76 : IF (welfare IS high AND self_confidence IS high AND activity IS high AND auction_growth IS low AND dif IS high) THEN assurance IS seven;
+	RULE 77 : IF (welfare IS high AND self_confidence IS high AND activity IS high AND auction_growth IS high AND dif IS low) THEN assurance IS seven;
+	
+	RULE 78 : IF (welfare IS avg AND self_confidence IS avg AND activity IS high AND auction_growth IS high AND dif IS high) THEN assurance IS eight;
+	RULE 79 : IF (welfare IS avg AND self_confidence IS high AND activity IS avg AND auction_growth IS high AND dif IS high) THEN assurance IS eight;
+	RULE 80 : IF (welfare IS avg AND self_confidence IS high AND activity IS high AND auction_growth IS avg AND dif IS high) THEN assurance IS eight;
+	RULE 81 : IF (welfare IS avg AND self_confidence IS high AND activity IS high AND auction_growth IS high AND dif IS avg) THEN assurance IS eight;
+	RULE 82 : IF (welfare IS high AND self_confidence IS avg AND activity IS avg AND auction_growth IS high AND dif IS high) THEN assurance IS eight;
+	RULE 83 : IF (welfare IS high AND self_confidence IS avg AND activity IS high AND auction_growth IS avg AND dif IS high) THEN assurance IS eight;
+	RULE 84 : IF (welfare IS high AND self_confidence IS avg AND activity IS high AND auction_growth IS high AND dif IS avg) THEN assurance IS eight;
+	RULE 85 : IF (welfare IS high AND self_confidence IS high AND activity IS avg AND auction_growth IS avg AND dif IS high) THEN assurance IS eight;
+	RULE 86 : IF (welfare IS high AND self_confidence IS high AND activity IS avg AND auction_growth IS high AND dif IS avg) THEN assurance IS eight;
+	RULE 87 : IF (welfare IS high AND self_confidence IS high AND activity IS high AND auction_growth IS avg AND dif IS avg) THEN assurance IS eight;
+	
+	RULE 88 : IF (welfare IS avg AND self_confidence IS high AND activity IS high AND auction_growth IS high AND dif IS high) THEN assurance IS nine;
+	RULE 89 : IF (welfare IS high AND self_confidence IS avg AND activity IS high AND auction_growth IS high AND dif IS high) THEN assurance IS nine;
+	RULE 90 : IF (welfare IS high AND self_confidence IS high AND activity IS avg AND auction_growth IS high AND dif IS high) THEN assurance IS nine;
+	RULE 91 : IF (welfare IS high AND self_confidence IS high AND activity IS high AND auction_growth IS avg AND dif IS high) THEN assurance IS nine;
+	RULE 92 : IF (welfare IS high AND self_confidence IS high AND activity IS high AND auction_growth IS high AND dif IS avg) THEN assurance IS nine;
+	
+	RULE 93 : IF (welfare IS high AND self_confidence IS high AND activity IS high AND auction_growth IS high AND dif IS high) THEN assurance IS ten;
+	
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
