@@ -127,6 +127,9 @@ RULEBLOCK No1
 	RULE 51: IF (need_product IS high AND self_confidence IS avg AND activity IS high AND auction_growth IS high AND type IS two) THEN fear_of_loss IS nine;
 	
 	RULE 52: IF (need_product IS high AND self_confidence IS high AND activity IS high AND auction_growth IS high) THEN fear_of_loss IS ten;
+
+	RULE 53 : IF ((need_product IS low OR need_product IS avg) AND (self_confidence IS high OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) AND type IS two) THEN fear_of_loss IS three;
+	
 END_RULEBLOCK
 
 END_FUNCTION_BLOCK

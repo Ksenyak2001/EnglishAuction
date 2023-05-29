@@ -82,7 +82,7 @@ public class DataManipulation {
     }
     
     private void priceAcceptabilityCalculation(){
-        //РАСЧЁТ ПРИЕМЛИМОСТИ ЦЕНЫ
+        //РАСЧЁТ ПРИЕМЛЕМОСТИ ЦЕНЫ
         ArrayList<Person> persons = MainDataOperations.getPersons();
         Lot lot = MainDataOperations.getLots().get(MainDataOperations.getLot_id());
         for (Person p : persons){
@@ -118,7 +118,7 @@ public class DataManipulation {
             System.out.print("Необходимость в товаре : ");
             CountingForLotWithPerson.countNeedLot(lot, p);
             System.out.println(p.getNeed_one_lot());
-            System.out.print("Приемлимость цены : ");
+            System.out.print("Приемлемость цены : ");
             System.out.println(p.getAcceptability());
             System.out.print("Страх потери : ");
             CountingForPerson.countFear_of_loss( FileNamesStorage.getFear_of_loss_fileName(),  p);
