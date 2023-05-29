@@ -31,8 +31,8 @@ FUZZIFY activity
 END_FUZZIFY
 
 FUZZIFY type			
-	TERM one := (1, 1) (1.75, 0) ;
-	TERM two := (1.25, 0) (2, 1);
+	TERM one := (0, 1) (0.75, 0) ;
+	TERM two := (0.25, 0) (1, 1);
 END_FUZZIFY
 
 DEFUZZIFY excitement		
@@ -49,7 +49,7 @@ DEFUZZIFY excitement
 	TERM ten := (9,0) (10,1);
 	
 	METHOD : COG;		
-	DEFAULT := -1;		
+	DEFAULT := -2;		
 END_DEFUZZIFY
 
 RULEBLOCK No1

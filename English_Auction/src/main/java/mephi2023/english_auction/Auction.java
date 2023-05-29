@@ -10,17 +10,37 @@ package mephi2023.english_auction;
  */
 public class Auction {
 
+    public static Person getLeader() {
+        return leader;
+    }
+
+    public static void setLeader(Person leader) {
+        Auction.leader = leader;
+    }
+
+    public static int getCount_participants() {
+        return count_participants;
+    }
+
+    public static void setCount_participants(int count_participants) {
+        Auction.count_participants = count_participants;
+    }
+
     public static double getActivity() {
         if (avg_grow_prev2_price == 0){
             return 0;
         }
-        return (avg_grow_prev_price-avg_grow_prev2_price)/avg_grow_prev2_price;
+        double delta = (avg_grow_prev_price-avg_grow_prev2_price)/avg_grow_prev2_price;
+        return (Math.exp(delta)/(1+Math.exp(delta)));
     }
     
     public static double getAuction_growth() {
-        return (prev_price-zero_price)/zero_price;
+        if (prev_price == 0){
+            return -1;
+        }
+        return (prev_price-zero_price)/prev_price;
     }
-    
+        
     public static double getPrev_price() {
         return prev_price;
     }
@@ -58,6 +78,8 @@ public class Auction {
         zero_price = 0;
         avg_grow_prev_price = 0;
         avg_grow_prev2_price = 0;
+        count_participants = -1;
+        leader = null;
     }
     public static void init(double price) {
         init();
@@ -67,4 +89,6 @@ public class Auction {
     private static double zero_price;
     private static double avg_grow_prev_price;
     private static double avg_grow_prev2_price;
+    private static int count_participants;
+    private static Person leader;
 }

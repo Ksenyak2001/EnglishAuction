@@ -45,7 +45,7 @@ DEFUZZIFY D
 	TERM ten := (3.6,0) (4,1);
 	
 	METHOD : COG;		
-	DEFAULT := -1;		
+	DEFAULT := -2;		
 END_DEFUZZIFY
 
 RULEBLOCK No1

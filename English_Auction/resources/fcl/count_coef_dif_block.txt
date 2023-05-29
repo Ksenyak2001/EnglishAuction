@@ -24,7 +24,7 @@ DEFUZZIFY coef_rarity
 	TERM avg_high := (1, 0) (1.4, 1) (1.6, 0);
 	TERM high := (1.4, 0) (1.6,1);
 	METHOD : COG;		
-	DEFAULT := 0;		
+	DEFAULT := -2;		
 END_DEFUZZIFY
 
 

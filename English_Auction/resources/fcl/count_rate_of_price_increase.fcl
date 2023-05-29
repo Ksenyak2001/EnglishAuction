@@ -13,7 +13,7 @@ END_VAR
 FUZZIFY excitement			
 	TERM low := (0, 1) (2.5, 1) (5,0) ;
 	TERM avg := trian 2.5 5 7.5;
-	TERM high := (5, 0) (7.5, 1) (10,1);
+	TERM high := (5, 0) (7.5, 1) (10, 1);
 END_FUZZIFY
 
 FUZZIFY fear_of_loss		
@@ -37,7 +37,7 @@ DEFUZZIFY rate_of_price_increase
 	TERM ten := (9,0) (10,1);
 	
 	METHOD : COG;		
-	DEFAULT := -1;		
+	DEFAULT := -2;		
 END_DEFUZZIFY
 
 RULEBLOCK No1

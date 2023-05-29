@@ -26,9 +26,9 @@ FUZZIFY self_confidence
 END_FUZZIFY
 
 FUZZIFY activity			
-	TERM low := (-1, 1) (-0.5, 1) (0,0) ;
-	TERM avg := trian -0.5 0 0.5;
-	TERM high := (0, 0) (0.5, 1) (1,1);
+	TERM low := (0, 1) (0.25, 1) (0.5,0) ;
+	TERM avg := trian 0.25 0.5 0.75;
+	TERM high := (0.5, 0) (0.75, 1) (1,1);
 END_FUZZIFY
 
 FUZZIFY auction_growth		
@@ -38,8 +38,8 @@ FUZZIFY auction_growth
 END_FUZZIFY
 
 FUZZIFY type			
-	TERM one := (1, 1) (1.75, 0) ;
-	TERM two := (1.25, 0) (2, 1);
+	TERM one := (0, 1) (0.75, 0) ;
+	TERM two := (0.25, 0) (1, 1);
 END_FUZZIFY
 
 DEFUZZIFY fear_of_loss		
@@ -56,7 +56,7 @@ DEFUZZIFY fear_of_loss
 	TERM ten := (9,0) (10,1);
 	
 	METHOD : COG;		
-	DEFAULT := -1;		
+	DEFAULT := -2;		
 END_DEFUZZIFY
 
 RULEBLOCK No1
@@ -88,15 +88,15 @@ RULEBLOCK No1
 	RULE 18 : IF (need_product IS avg AND self_confidence IS low AND activity IS low AND auction_growth IS avg AND type IS two) THEN fear_of_loss IS three;
 	RULE 19 : IF (need_product IS high AND self_confidence IS low AND activity IS low AND auction_growth IS low AND type IS two) THEN fear_of_loss IS three;
 	
-	RULE 20 : IF (need_product IS avg AND self_confidence IS low AND activity IS avg AND auction_growth IS avg AND type IS one) THEN fear_of_loss IS four;
-	RULE 21 : IF ((need_product IS low OR need_product IS avg) AND self_confidence IS high AND (activity IS low OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) AND type IS one) THEN fear_of_loss IS four;
-	RULE 22 : IF (need_product IS high AND (self_confidence IS low OR self_confidence IS avg) AND activity IS high AND (auction_growth IS low OR auction_growth IS avg) AND type IS one) THEN fear_of_loss IS four;
-	RULE 23 : IF (need_product IS high AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND auction_growth IS high AND type IS one) THEN fear_of_loss IS four;
-	RULE 24 : IF ((need_product IS low OR need_product IS avg) AND (self_confidence IS low OR self_confidence IS low) AND activity IS high AND auction_growth IS high) THEN fear_of_loss IS four;
-	RULE 25 : IF (need_product IS low AND self_confidence IS avg AND activity IS avg AND auction_growth IS avg AND type IS two) THEN fear_of_loss IS four;
-	RULE 26 : IF (need_product IS high AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) AND type IS two) THEN fear_of_loss IS four;
-	RULE 27 : IF ((need_product IS low OR need_product IS avg) AND self_confidence IS high AND activity IS high AND (auction_growth IS low OR auction_growth IS avg) AND type IS two) THEN fear_of_loss IS four;
-	RULE 28 : IF ((need_product IS low OR need_product IS avg) AND self_confidence IS high AND (activity IS low OR activity IS avg) AND auction_growth IS high AND type IS two) THEN fear_of_loss IS four;
+	RULE 20 : IF ((need_product IS high OR need_product IS avg)  AND (self_confidence IS high OR self_confidence IS avg) AND (activity IS high OR activity IS avg) AND (auction_growth IS high OR auction_growth IS avg) AND type IS one) THEN fear_of_loss IS four;
+	RULE 21 : IF ((need_product IS low OR need_product IS avg) AND (self_confidence IS high OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) AND type IS one) THEN fear_of_loss IS four;
+	RULE 22 : IF ((need_product IS high OR need_product IS avg) AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS high OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) AND type IS one) THEN fear_of_loss IS four;
+	RULE 23 : IF ((need_product IS high OR need_product IS avg) AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND (auction_growth IS high OR auction_growth IS avg) AND type IS one) THEN fear_of_loss IS four;
+	RULE 24 : IF ((need_product IS low OR need_product IS avg) AND (self_confidence IS low OR self_confidence IS low) AND (activity IS high OR activity IS avg) AND (auction_growth IS high OR auction_growth IS avg)) THEN fear_of_loss IS four;
+	RULE 25 : IF ((need_product IS high OR need_product IS avg) AND (self_confidence IS high OR self_confidence IS avg) AND (activity IS high OR activity IS avg) AND (auction_growth IS high OR auction_growth IS avg) AND type IS two) THEN fear_of_loss IS four;
+	RULE 26 : IF ((need_product IS high OR need_product IS avg) AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) AND type IS two) THEN fear_of_loss IS four;
+	RULE 27 : IF ((need_product IS low OR need_product IS avg) AND (self_confidence IS high OR self_confidence IS avg) AND (activity IS high OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) AND type IS two) THEN fear_of_loss IS four;
+	RULE 28 : IF ((need_product IS low OR need_product IS avg) AND (self_confidence IS high OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND (auction_growth IS high OR auction_growth IS avg) AND type IS two) THEN fear_of_loss IS four;
 	
 	RULE 29 : IF (need_product IS avg AND self_confidence IS avg AND activity IS avg AND auction_growth IS avg) THEN fear_of_loss IS five;
 	RULE 30 : IF (need_product IS avg AND self_confidence IS avg AND activity IS high AND auction_growth IS high) THEN fear_of_loss IS five;
@@ -107,11 +107,11 @@ RULEBLOCK No1
 	RULE 35 : IF (need_product IS avg AND self_confidence IS high AND activity IS high AND auction_growth IS avg AND type IS two) THEN fear_of_loss IS five;
 	RULE 36 : IF (need_product IS avg AND self_confidence IS high AND activity IS avg AND auction_growth IS high AND type IS two) THEN fear_of_loss IS five;
 	
-	RULE 37 : IF (need_product IS high AND self_confidence IS high AND (activity IS low OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) ) THEN fear_of_loss IS six;
-	RULE 38 : IF ((need_product IS low OR need_product IS avg) AND self_confidence IS high AND activity IS high AND (auction_growth IS low OR auction_growth IS avg) AND type IS one) THEN fear_of_loss IS six;
-	RULE 39 : IF ((need_product IS low OR need_product IS avg) AND self_confidence IS high AND (activity IS low OR activity IS avg) AND auction_growth IS high AND type IS one) THEN fear_of_loss IS six;
-	RULE 40 : IF (need_product IS high AND (self_confidence IS low OR self_confidence IS avg) AND activity IS high AND (auction_growth IS low OR auction_growth IS avg) AND type IS two) THEN fear_of_loss IS six;
-	RULE 41 : IF (need_product IS high AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND auction_growth IS high AND type IS two) THEN fear_of_loss IS six;
+	RULE 37 : IF ((need_product IS high OR need_product IS avg) AND (self_confidence IS high OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) ) THEN fear_of_loss IS six;
+	RULE 38 : IF ((need_product IS low OR need_product IS avg) AND (self_confidence IS high OR self_confidence IS avg) AND (activity IS high OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) AND type IS one) THEN fear_of_loss IS six;
+	RULE 39 : IF ((need_product IS low OR need_product IS avg) AND (self_confidence IS high OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND (auction_growth IS high OR auction_growth IS avg) AND type IS one) THEN fear_of_loss IS six;
+	RULE 40 : IF ((need_product IS high OR need_product IS avg) AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS high OR activity IS avg) AND (auction_growth IS low OR auction_growth IS avg) AND type IS two) THEN fear_of_loss IS six;
+	RULE 41 : IF ((need_product IS high OR need_product IS avg) AND (self_confidence IS low OR self_confidence IS avg) AND (activity IS low OR activity IS avg) AND (auction_growth IS high OR auction_growth IS avg) AND type IS two) THEN fear_of_loss IS six;
 	
 	RULE 42 : IF (need_product IS high AND (self_confidence IS low OR self_confidence IS low) AND activity IS high AND auction_growth IS high  AND type IS one) THEN fear_of_loss IS seven;
 	RULE 43 : IF ((need_product IS low OR need_product IS avg) AND self_confidence IS high AND activity IS high AND auction_growth IS high  AND type IS two) THEN fear_of_loss IS seven;

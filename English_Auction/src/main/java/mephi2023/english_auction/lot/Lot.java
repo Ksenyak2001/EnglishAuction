@@ -4,7 +4,6 @@
  */
 package mephi2023.english_auction.lot;
 
-import mephi2023.english_auction.lot.ExemplarLot;
 import java.util.ArrayList;
 import mephi2023.english_auction.CountFCL;
 
@@ -12,22 +11,34 @@ import mephi2023.english_auction.CountFCL;
  *
  * @author Kseny
  */
-public class Lot extends ExemplarLot{
+public class Lot {
+
+    public ArrayList<String> getParam_names() {
+        return param_names;
+    }
+
+    public void setParam_names(ArrayList<String> param_names) {
+        this.param_names = param_names;
+    }
     private String lot_name;
     private int fame;
     private int significance;
     private int rarity;
     private double prev_price;
     private double now_price;
+    private ArrayList<String> param_names;
+    String res_name;
+    
     public Lot(){
         this.prev_price = 0;
         this.now_price = 0;
+        param_names = new ArrayList<>();
+        param_names.add("rarity");
+        param_names.add("fame");
+        param_names.add("significance");
+        res_name = "D";
     };
-    public Lot (String file_name){
-        this.prev_price = 0;
-        this.now_price = 0;
-        super.setFile_name(file_name);
-    }
+    
     public Lot(String lot_name, int fame, int significance, int rarity) {
         this.prev_price = 0;
         this.now_price = 0;
@@ -44,8 +55,8 @@ public class Lot extends ExemplarLot{
     public void countPrice(String file_name) {
         int base_price = 5;
         this.prev_price = this.now_price;
-        this.now_price = base_price*CountFCL.countCoefPrice(file_name, super.getRes_names(), 
-                        super.getParam_names(), this.getValues());        
+        this.now_price = base_price*CountFCL.countCoef(file_name, this.res_name, 
+                        this.param_names, this.getValues());        
     }   
 
     public void setPrev_price(double prev_price) {

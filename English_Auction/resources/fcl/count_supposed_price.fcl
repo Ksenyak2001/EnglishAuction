@@ -36,7 +36,7 @@ DEFUZZIFY price_d
 	TERM avg := (3,0) (5,1) (6,1) (8,0);
 	TERM high := (7,0) (8,1) (9,1) (10,1);
 	METHOD : COG;		
-	DEFAULT := 0;		
+	DEFAULT := -2;		
 END_DEFUZZIFY
 
 RULEBLOCK No1

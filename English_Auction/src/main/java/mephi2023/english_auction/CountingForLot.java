@@ -18,12 +18,13 @@ public class CountingForLot {
         lot.setPrev_price(lot.getNow_price());
         double temp_price = base_price*(CountFCL.countCoef(file_name, 
                 lot.getRes_name(), lot.getParam_names(), lot.getValues())+1);
-        lot.setNow_price((int) Math.round(temp_price));    
+        //lot.setNow_price((int) Math.round(temp_price));   
+        lot.setNow_price(temp_price);   
+        
         try {
             CountFCL.checkCount(temp_price, "countPrice");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            //Logger.getLogger(CountingForLot.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
 }

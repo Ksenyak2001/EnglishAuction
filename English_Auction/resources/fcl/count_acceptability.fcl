@@ -43,7 +43,7 @@ DEFUZZIFY acceptability
 	TERM ten := (9,0) (10,1);
 	
 	METHOD : COG;		
-	DEFAULT := -1;		
+	DEFAULT := -2;		
 END_DEFUZZIFY
 
 RULEBLOCK No1

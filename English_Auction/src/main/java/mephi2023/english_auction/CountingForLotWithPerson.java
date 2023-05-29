@@ -38,7 +38,7 @@ public class CountingForLotWithPerson {
         initAcceptabilityPrice(lot, person);
         lot.countDifPrice();
         double temp_acceptability = CountFCL.countCoef(file_name, res_name, res_params, values);
-        person.setAcceptability((int) Math.round(temp_acceptability));   
+        person.setAcceptability(temp_acceptability);   
         try {
             CountFCL.checkCount(temp_acceptability, "countAcceptabilityPrice");
         } catch (Exception ex) {
@@ -47,7 +47,7 @@ public class CountingForLotWithPerson {
         }
     } 
     public static void countNeedLot(Lot lot, Person person) {
-        int lot_id = Integer.parseInt(lot.getLot_name());
+        int lot_id = Integer.parseInt(lot.getLot_name()) -1;
         person.countNeed_one_lot(lot_id);   
     } 
     
@@ -70,14 +70,48 @@ public class CountingForLotWithPerson {
     public static void countLackOfConfidence(String file_name, Lot lot, Person person) {
         initLackOfConfidence(lot, person);
         //System.out.println(lot.getPrev_price() + " ; " + lot.getNow_price());
-        double lack_of_confidence = CountFCL.countCoef(file_name, res_name, res_params, values);
-        lack_of_confidence = doRightView(lack_of_confidence);
-        person.setLack_of_confidence(Math.round(lack_of_confidence)); 
+        double temp_lack_of_confidence = person.getLack_of_confidence(); 
+        double tloc = CountFCL.countCoef(file_name, res_name, res_params, values);
+        temp_lack_of_confidence += doRightView(tloc);
+        person.setLack_of_confidence(temp_lack_of_confidence); 
+        
         try {
-            CountFCL.checkCount(lack_of_confidence, "countLackOfConfidence");
+            CountFCL.checkCount(tloc, "countLackOfConfidence");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            //Logger.getLogger(CountingForLot.class.getName()).log(Level.SEVERE, null, ex);
-        }   
-    } 
+        }
+    }
+    
+    private static void initAssurance(Lot lot, Person person){
+        res_params = new ArrayList<>();
+        res_params.add("welfare");
+        res_params.add("self_confidence");
+        res_params.add("activity");
+        res_params.add("auction_growth");
+        res_params.add("dif");
+        res_name = "assurance";
+        values = new ArrayList<>();
+        values.add(person.getWelfare());
+        values.add(person.getSelf_confidence());
+        values.add(Auction.getActivity());
+        values.add(Auction.getAuction_growth());
+        values.add(lot.countDifPrice());        
+        min_value = -1;
+        max_value = 1;
+        count = 10;
+    }
+    public static void countAssurance(String file_name, Lot lot, Person person) {
+        initAssurance(lot, person);
+        double temp_assurance = person.getAssurance();   
+        double ta = CountFCL.countCoef(file_name, res_name, res_params, values);     
+        //temp_assurance += doRightView(ta);
+        temp_assurance += ta;
+        person.setAssurance(temp_assurance);    
+        
+        try {
+            CountFCL.checkCount(ta, "countAssurance");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }  
 }

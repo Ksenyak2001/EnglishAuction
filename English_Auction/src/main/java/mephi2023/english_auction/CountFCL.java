@@ -65,12 +65,14 @@ public class CountFCL {
     }*/
     public static double countCoef(String file_name, String res_name, 
             ArrayList<String> param_names, ArrayList<Object> values){
-        FIS fis = ReadFCL(file_name);       
+        FIS fis = ReadFCL(file_name);      
+        System.out.print(" { ");
         for (int j = 0; j < param_names.size(); j++) {
             System.out.print(values.get(j) + " ");
             fis.setVariable(param_names.get(j), Double.parseDouble(String.valueOf(values.get(j))));
         }
-        fis.evaluate();
+        fis.evaluate();   
+        System.out.print("} => ");
         System.out.println(fis.getVariable(res_name).getValue()); 
         return fis.getVariable(res_name).getValue();
     }
@@ -128,7 +130,7 @@ public class CountFCL {
     }
     
     public static void checkCount(double value, String name) throws Exception{
-        if (value == (-1.0)){
+        if (value == (-2.0)){
             throw new Exception("WRONG VALUE IN " + name);
         }
     }
