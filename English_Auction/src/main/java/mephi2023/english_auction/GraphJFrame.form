@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="chooseLotDialog">
       <Properties>
@@ -13,7 +13,10 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="chooseLotPanel" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="chooseLotPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -38,118 +41,96 @@
                       <Component id="chooseLotLabel" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="sellButton" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lot41RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot42RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot43RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot44RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot45RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot46RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot47RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot48RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot49RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot50RadioButton" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="sellButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lot41RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot31RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot21RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot11RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot1RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="lot31RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot32RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot33RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot34RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot35RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot36RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot37RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot38RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot39RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot40RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lot42RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot32RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot22RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot12RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot2RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="lot21RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot22RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot23RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot24RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot25RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot26RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot27RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot28RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot29RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot30RadioButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="lot11RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot12RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot13RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot14RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot15RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot16RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot17RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot18RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot19RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lot20RadioButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="lot1RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lot2RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lot43RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot33RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot23RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lot3RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lot4RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lot5RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lot6RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lot7RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lot8RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Component id="lot9RadioButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lot10RadioButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot13RadioButton" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lot44RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot34RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot24RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot4RadioButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot14RadioButton" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lot45RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot35RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot25RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot5RadioButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot15RadioButton" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lot6RadioButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lot46RadioButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lot36RadioButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lot26RadioButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lot16RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lot7RadioButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot47RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot37RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot27RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot17RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lot8RadioButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot48RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot38RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot28RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot18RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lot9RadioButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot49RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot39RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot29RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot19RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lot10RadioButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot50RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot40RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot30RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lot20RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -159,69 +140,116 @@
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="chooseLotLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lot1RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot3RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot2RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot4RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot5RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot6RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot7RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot8RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot9RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot10RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lot11RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot13RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot12RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot14RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot15RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot16RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot17RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot18RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot19RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot20RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lot21RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot23RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot22RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot24RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot25RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot26RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot27RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot28RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot29RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot30RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lot31RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot33RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot32RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot34RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot35RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot36RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot37RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot38RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot39RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot40RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lot41RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot43RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot42RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot44RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot45RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot46RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot47RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot48RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot49RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lot50RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lot1RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot11RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot21RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot31RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot41RadioButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="lot10RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot20RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot30RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot40RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot50RadioButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lot8RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="lot18RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot28RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot38RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot48RadioButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lot7RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lot6RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lot5RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lot4RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lot3RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="lot2RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot12RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot22RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot32RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lot42RadioButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lot9RadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lot19RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot29RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot39RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot49RadioButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lot17RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot27RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot37RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot47RadioButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lot16RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot26RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot36RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot46RadioButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lot15RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot25RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot35RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot45RadioButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lot14RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot24RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot34RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot44RadioButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lot13RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot23RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot33RadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lot43RadioButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace pref="37" max="32767" attributes="0"/>
                       <Component id="sellButton" min="-2" max="-2" attributes="0"/>
@@ -807,16 +835,11 @@
     <Component class="javax.swing.ButtonGroup" name="lotsButtonGroup">
     </Component>
     <Container class="javax.swing.JDialog" name="resultStepDialog">
-      <Properties>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[500, 300]"/>
-        </Property>
-      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <Component id="resultStepPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -824,7 +847,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <Component id="resultStepPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -852,6 +875,18 @@
                           <Component id="seeParamsParticipantsButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="seeDynamicPriceButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="closeAllButton" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="leaderInfoLabel" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="priceInfoLabel" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="leaderLabel" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="priceLabel" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -861,6 +896,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="leaderInfoLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="priceInfoLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="leaderLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="priceLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="seeParamsParticipantsButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="seeDynamicPriceButton" min="-2" max="-2" attributes="0"/>
@@ -868,7 +916,7 @@
                       <Component id="closeButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="closeAllButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="120" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -955,16 +1003,43 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeAllButtonActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="leaderInfoLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Gabriola" size="24" style="3"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#x41b;&#x438;&#x434;&#x435;&#x440; &#x43f;&#x440;&#x43e;&#x434;&#x430;&#x436;:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="priceInfoLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Gabriola" size="24" style="3"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#x426;&#x435;&#x43d;&#x430;:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="priceLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Gabriola" size="24" style="2"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#x426;&#x435;&#x43d;&#x430;:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="leaderLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Gabriola" size="24" style="2"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#x41b;&#x438;&#x434;&#x435;&#x440; &#x43f;&#x440;&#x43e;&#x434;&#x430;&#x436;:"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="choosePersonDialog">
-      <Properties>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[500, 300]"/>
-        </Property>
-      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">

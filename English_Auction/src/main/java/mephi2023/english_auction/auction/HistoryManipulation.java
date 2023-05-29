@@ -6,6 +6,7 @@ package mephi2023.english_auction.auction;
 
 import mephi2023.english_auction.graph.Dataset;
 import java.util.ArrayList;
+import javax.swing.JRadioButton;
 import org.jfree.data.xy.XYDataset;
 
 /**
@@ -61,6 +62,20 @@ public class HistoryManipulation {
     private ArrayList<XYDataset> datasets_lots;
     private Dataset temp_dataset;
     private XYDataset temp_dataset_lot;
+    private JRadioButton tempRadioButton;
+
+    public void disappearTempRadioButton(){
+        tempRadioButton.setSelected(false);
+        tempRadioButton.setVisible(false);
+    }
+    
+    public JRadioButton getTempRadioButton() {
+        return tempRadioButton;
+    }
+
+    public void setTempRadioButton(JRadioButton tempRadioButton) {
+        this.tempRadioButton = tempRadioButton;
+    }
     public HistoryManipulation(){
         datasets = new ArrayList<>();
         datasets_lots = new ArrayList<>();

@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JRadioButton;
 import javax.swing.table.DefaultTableModel;
 import mephi2023.english_auction.lot.Lot;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -33,6 +34,20 @@ public class DataManipulation {
     HistoryManipulation hm;
     public DataManipulation(){        
         hm = new HistoryManipulation();
+    }
+    
+    public void decreaseLot_id(){
+        MainDataOperations.decreaseLot_id();
+    }
+    public int getLot_id(){
+        return MainDataOperations.getLot_id();
+    }
+    public void setLot_id(int lot_id){
+        MainDataOperations.setLot_id(lot_id);
+    }
+    
+    public void setTempRadioButton(JRadioButton tempButton){
+        hm.setTempRadioButton(tempButton);
     }
     
     private void loadData(){
@@ -267,26 +282,41 @@ public class DataManipulation {
         return model;
     }
     
-    public void modelingAuction(boolean auto, int lot_id){
+    public void initModelingAuction(boolean auto, int lot_id){        
         loadData();
         startAuction(auto, lot_id);
         initializeDataset();
+        hm.disappearTempRadioButton();
+    }
+    
+    public int oneTourAuction(int numb_step){
+        priceAcceptabilityCalculation();
+        auctionEffectsCalculation();
+        emotionsCalculation();
+        activeParicipationDecision();
+        rateOfPriceIncreaseDecision();
+        hm.setTemp_dataset_lot(hm.getTemp_dataset().createDataset(numb_step, Auction.getPrev_price()));
+        return (numb_step+1);
+    }
+    
+    public void modelingAuction(boolean auto, int lot_id){
         int n = MainDataOperations.getPersons().size(), numb_step = 1;
         
         //НАЧАЛО ЦИКЛА
         while(MainDataOperations.getCount_pass() != n){
-            priceAcceptabilityCalculation();
-            auctionEffectsCalculation();
-            emotionsCalculation();
-            activeParicipationDecision();
-            rateOfPriceIncreaseDecision();
-            hm.setTemp_dataset_lot(hm.getTemp_dataset().createDataset(numb_step, Auction.getPrev_price()));
-            numb_step++;
+            numb_step = oneTourAuction(numb_step);
         //КОНЕЦ ЦИКЛА
         }
         System.out.println(Auction.getLeader().getName());
         System.out.println(Auction.getPrev_price());
         //vizualizeDataset();
     }
-    
+    public String getLeaderName(){
+        return Auction.getLeader().getName();
+    }
+    public double getLeaderPrice(){
+        double count_after_dot = 1000;
+        System.out.println((Math.round(Auction.getPrev_price()*count_after_dot)));
+        return (Math.round(Auction.getPrev_price()*count_after_dot))/count_after_dot;
+    }
 }
