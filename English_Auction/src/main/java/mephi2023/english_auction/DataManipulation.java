@@ -208,9 +208,10 @@ public class DataManipulation {
     private void initializeDataset(){        
         Dataset dataset = new Dataset("График для лота " + 
                 (MainDataOperations.getLot_id()+1));
-        XYDataset dataset_lot = dataset.createDataset(0,0);
+        XYDataset dataset_lot = dataset.createDataset(0,Auction.getZero_price());
         hm.addDatasets(dataset);
         hm.addDatasets_lots(dataset_lot);
+        hm.addPrevLots_id(String.valueOf(this.getLot_id() + 1));
     }
     LineChart demo;
     public void vizualizeDataset(){        
@@ -220,8 +221,31 @@ public class DataManipulation {
         RefineryUtilities.centerFrameOnScreen(demo);
         demo.setVisible(true);
     }
+    
+    public void vizualizeDataset(int prevLot_id){        
+        demo = new LineChart("График для лота " + 
+                (hm.getPrevLots_id().get(prevLot_id)), hm.getDatasets_lots().get(prevLot_id));
+        demo.pack();
+        RefineryUtilities.centerFrameOnScreen(demo);
+        demo.setVisible(true);
+    }
     public void unvizualizeDataset(){
-        demo.dispose();
+        if (demo != null) {
+            demo.dispose();
+        }
+    }
+    
+    public boolean isPrevLots(){
+        return hm.getPrevLots_id().size()>1;
+    }
+    
+    public Map<Integer, String> getNamesPrevLots(){
+        Map<Integer,String> namesPrevLots = new HashMap<Integer,String>();
+        ArrayList<String> prevLots_is = hm.getPrevLots_id();
+        for (int i = 0; i < prevLots_is.size(); ++i){
+            namesPrevLots.put(i, prevLots_is.get(i));
+        }
+        return namesPrevLots;
     }
     
     public Map<Integer, String> getNamesParticipants(){
@@ -307,9 +331,13 @@ public class DataManipulation {
             numb_step = oneTourAuction(numb_step);
         //КОНЕЦ ЦИКЛА
         }
+        hm.addPrevLeaders(Auction.getLeader().getName());
+        hm.addPrevPrices(Auction.getPrev_price());
         System.out.println(Auction.getLeader().getName());
         System.out.println(Auction.getPrev_price());
         //vizualizeDataset();
+        System.out.println(hm.getDatasets().size());
+        System.out.println(hm.getDatasets_lots().size());
     }
     public String getLeaderName(){
         return Auction.getLeader().getName();
@@ -318,5 +346,12 @@ public class DataManipulation {
         double count_after_dot = 1000;
         System.out.println((Math.round(Auction.getPrev_price()*count_after_dot)));
         return (Math.round(Auction.getPrev_price()*count_after_dot))/count_after_dot;
+    }
+    public String getPrevLeaderName(int id){
+        return hm.getPrevLeaders().get(id);
+    }
+    public double getPrevLeaderPrice(int id){
+        double count_after_dot = 1000;
+        return (Math.round(hm.getPrevPrices().get(id)*count_after_dot))/count_after_dot;
     }
 }

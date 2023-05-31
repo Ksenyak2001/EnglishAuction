@@ -23,12 +23,18 @@ public class GraphJFrame extends javax.swing.JFrame {
         initComponents();
         chooseLotDialog.setBounds(100, 100, 500, 300);
         chooseLotDialog.setVisible(false);
-        resultStepDialog.setBounds(100, 100, 500, 300);
+        resultStepDialog.setBounds(100, 100, 500, 350);
         resultStepDialog.setVisible(false);
         choosePersonDialog.setBounds(100, 100, 550, 300);
         choosePersonDialog.setVisible(false);
         showPersonParamsDialog.setBounds(100, 100, 550, 400);
         showPersonParamsDialog.setVisible(false);
+        chooseModeDialog.setBounds(100, 100, 500, 300);
+        chooseModeDialog.setVisible(false);
+        chooseExitOrNextDialog.setBounds(100, 100, 500, 300);
+        chooseExitOrNextDialog.setVisible(false);
+        choosePrevLotDialog.setBounds(100, 100, 600, 350);
+        choosePrevLotDialog.setVisible(false);
         dm = new DataManipulation();
         closeButton.setVisible(false);
     }
@@ -95,7 +101,7 @@ public class GraphJFrame extends javax.swing.JFrame {
         lot42RadioButton = new javax.swing.JRadioButton();
         lot41RadioButton = new javax.swing.JRadioButton();
         chooseLotLabel = new javax.swing.JLabel();
-        sellButton = new javax.swing.JButton();
+        chooseModeButton = new javax.swing.JButton();
         lotsButtonGroup = new javax.swing.ButtonGroup();
         resultStepDialog = new javax.swing.JDialog();
         resultStepPanel = new javax.swing.JPanel();
@@ -107,6 +113,7 @@ public class GraphJFrame extends javax.swing.JFrame {
         priceInfoLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
         leaderLabel = new javax.swing.JLabel();
+        seeHistoryButton = new javax.swing.JButton();
         choosePersonDialog = new javax.swing.JDialog();
         choosePersonPanel = new javax.swing.JPanel();
         partiсipantsComboBox = new javax.swing.JComboBox<>();
@@ -118,6 +125,25 @@ public class GraphJFrame extends javax.swing.JFrame {
         parametersTable = new javax.swing.JTable();
         participantLabel = new javax.swing.JLabel();
         closeShowParamsButton = new javax.swing.JButton();
+        chooseModeDialog = new javax.swing.JDialog();
+        chooseModePanel = new javax.swing.JPanel();
+        chooseModeLabel = new javax.swing.JLabel();
+        autoRadioButton = new javax.swing.JRadioButton();
+        manualRadioButton = new javax.swing.JRadioButton();
+        sellButton = new javax.swing.JButton();
+        modeButtonGroup = new javax.swing.ButtonGroup();
+        chooseExitOrNextDialog = new javax.swing.JDialog();
+        chooseExitOrNextPanel = new javax.swing.JPanel();
+        nextLotButton = new javax.swing.JButton();
+        exitAuctionButton = new javax.swing.JButton();
+        choosePrevLotDialog = new javax.swing.JDialog();
+        choosePrevLotPanel = new javax.swing.JPanel();
+        choosePrevLotLabel = new javax.swing.JLabel();
+        prevLotsComboBox = new javax.swing.JComboBox<>();
+        seePrevLotChangesButton = new javax.swing.JButton();
+        closePrevGraphButton = new javax.swing.JButton();
+        closeHistoryButton = new javax.swing.JButton();
+        prevSellInfoLabel = new javax.swing.JLabel();
         startPanel = new javax.swing.JPanel();
         startAuctionButton = new javax.swing.JButton();
 
@@ -529,11 +555,12 @@ public class GraphJFrame extends javax.swing.JFrame {
         chooseLotLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
         chooseLotLabel.setText("Выберите лот для продажи:");
 
-        sellButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
-        sellButton.setText("Продать");
-        sellButton.addActionListener(new java.awt.event.ActionListener() {
+        chooseModeButton.setBackground(new java.awt.Color(253, 240, 228));
+        chooseModeButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
+        chooseModeButton.setText("Далее");
+        chooseModeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sellButtonActionPerformed(evt);
+                chooseModeButtonActionPerformed(evt);
             }
         });
 
@@ -548,7 +575,7 @@ public class GraphJFrame extends javax.swing.JFrame {
                 .addGroup(chooseLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(chooseLotPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(sellButton))
+                        .addComponent(chooseModeButton))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, chooseLotPanelLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(chooseLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -728,7 +755,7 @@ public class GraphJFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lot43RadioButton)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(sellButton)
+                .addComponent(chooseModeButton)
                 .addContainerGap())
         );
 
@@ -748,6 +775,7 @@ public class GraphJFrame extends javax.swing.JFrame {
         resultStepPanel.setBackground(new java.awt.Color(239, 210, 190));
         resultStepPanel.setMinimumSize(new java.awt.Dimension(500, 300));
 
+        seeParamsParticipantsButton.setBackground(new java.awt.Color(253, 240, 228));
         seeParamsParticipantsButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
         seeParamsParticipantsButton.setText("Посмотреть параметры участников");
         seeParamsParticipantsButton.setMaximumSize(new java.awt.Dimension(470, 39));
@@ -759,6 +787,7 @@ public class GraphJFrame extends javax.swing.JFrame {
             }
         });
 
+        seeDynamicPriceButton.setBackground(new java.awt.Color(253, 240, 228));
         seeDynamicPriceButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
         seeDynamicPriceButton.setText("Посмотреть динамику цены");
         seeDynamicPriceButton.setAutoscrolls(true);
@@ -771,6 +800,7 @@ public class GraphJFrame extends javax.swing.JFrame {
             }
         });
 
+        closeButton.setBackground(new java.awt.Color(253, 240, 228));
         closeButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
         closeButton.setText("Закрыть результаты");
         closeButton.setMaximumSize(new java.awt.Dimension(470, 39));
@@ -782,6 +812,7 @@ public class GraphJFrame extends javax.swing.JFrame {
             }
         });
 
+        closeAllButton.setBackground(new java.awt.Color(253, 240, 228));
         closeAllButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
         closeAllButton.setText("Закончить анализ продажи");
         closeAllButton.setMaximumSize(new java.awt.Dimension(470, 39));
@@ -805,6 +836,18 @@ public class GraphJFrame extends javax.swing.JFrame {
         leaderLabel.setFont(new java.awt.Font("Gabriola", 2, 24)); // NOI18N
         leaderLabel.setText("Лидер продаж:");
 
+        seeHistoryButton.setBackground(new java.awt.Color(253, 240, 228));
+        seeHistoryButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
+        seeHistoryButton.setText("Посмотреть информацию о проданных лотах");
+        seeHistoryButton.setMaximumSize(new java.awt.Dimension(470, 39));
+        seeHistoryButton.setMinimumSize(new java.awt.Dimension(470, 39));
+        seeHistoryButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        seeHistoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seeHistoryButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout resultStepPanelLayout = new javax.swing.GroupLayout(resultStepPanel);
         resultStepPanel.setLayout(resultStepPanelLayout);
         resultStepPanelLayout.setHorizontalGroup(
@@ -824,7 +867,8 @@ public class GraphJFrame extends javax.swing.JFrame {
                         .addGroup(resultStepPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(leaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(seeHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         resultStepPanelLayout.setVerticalGroup(
@@ -845,10 +889,12 @@ public class GraphJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(seeDynamicPriceButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(seeHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(closeAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout resultStepDialogLayout = new javax.swing.GroupLayout(resultStepDialog.getContentPane());
@@ -883,6 +929,7 @@ public class GraphJFrame extends javax.swing.JFrame {
         chooseParticipantLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
         chooseParticipantLabel.setText("Выберите участника аукциона:");
 
+        seePersonParamsButton.setBackground(new java.awt.Color(253, 240, 228));
         seePersonParamsButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
         seePersonParamsButton.setText("Просмотреть параметры");
         seePersonParamsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -958,7 +1005,9 @@ public class GraphJFrame extends javax.swing.JFrame {
         participantLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
         participantLabel.setText("Параметры участника - ");
 
-        closeShowParamsButton.setText("X");
+        closeShowParamsButton.setBackground(new java.awt.Color(253, 240, 228));
+        closeShowParamsButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
+        closeShowParamsButton.setText("Закрыть");
         closeShowParamsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeShowParamsButtonActionPerformed(evt);
@@ -974,20 +1023,18 @@ public class GraphJFrame extends javax.swing.JFrame {
                 .addGroup(showPersonParamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(showPersonParamsPanelLayout.createSequentialGroup()
-                        .addComponent(participantLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(participantLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(closeShowParamsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(closeShowParamsButton)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         showPersonParamsPanelLayout.setVerticalGroup(
             showPersonParamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showPersonParamsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(showPersonParamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(showPersonParamsPanelLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(closeShowParamsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(participantLabel))
+                .addGroup(showPersonParamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(participantLabel)
+                    .addComponent(closeShowParamsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(106, Short.MAX_VALUE))
@@ -1004,6 +1051,239 @@ public class GraphJFrame extends javax.swing.JFrame {
         showPersonParamsDialogLayout.setVerticalGroup(
             showPersonParamsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(showPersonParamsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        chooseModePanel.setBackground(new java.awt.Color(239, 210, 190));
+        chooseModePanel.setMinimumSize(new java.awt.Dimension(500, 300));
+        chooseModePanel.setPreferredSize(new java.awt.Dimension(500, 300));
+
+        chooseModeLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
+        chooseModeLabel.setText("Выберите режим проведения аукциона:");
+
+        modeButtonGroup.add(autoRadioButton);
+        autoRadioButton.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
+        autoRadioButton.setText("Автоматический");
+
+        modeButtonGroup.add(manualRadioButton);
+        manualRadioButton.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
+        manualRadioButton.setText("Ручной");
+
+        sellButton.setBackground(new java.awt.Color(253, 240, 228));
+        sellButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
+        sellButton.setText("Провести продажу");
+        sellButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sellButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout chooseModePanelLayout = new javax.swing.GroupLayout(chooseModePanel);
+        chooseModePanel.setLayout(chooseModePanelLayout);
+        chooseModePanelLayout.setHorizontalGroup(
+            chooseModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseModePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(chooseModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chooseModeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                    .addGroup(chooseModePanelLayout.createSequentialGroup()
+                        .addGroup(chooseModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(autoRadioButton)
+                            .addComponent(manualRadioButton)
+                            .addComponent(sellButton))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        chooseModePanelLayout.setVerticalGroup(
+            chooseModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseModePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(chooseModeLabel)
+                .addGap(18, 18, 18)
+                .addComponent(autoRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(manualRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(sellButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
+        );
+
+        javax.swing.GroupLayout chooseModeDialogLayout = new javax.swing.GroupLayout(chooseModeDialog.getContentPane());
+        chooseModeDialog.getContentPane().setLayout(chooseModeDialogLayout);
+        chooseModeDialogLayout.setHorizontalGroup(
+            chooseModeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseModeDialogLayout.createSequentialGroup()
+                .addComponent(chooseModePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        chooseModeDialogLayout.setVerticalGroup(
+            chooseModeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseModeDialogLayout.createSequentialGroup()
+                .addComponent(chooseModePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        chooseExitOrNextPanel.setBackground(new java.awt.Color(239, 210, 190));
+        chooseExitOrNextPanel.setPreferredSize(new java.awt.Dimension(500, 300));
+
+        nextLotButton.setBackground(new java.awt.Color(253, 240, 228));
+        nextLotButton.setFont(new java.awt.Font("Gabriola", 2, 24)); // NOI18N
+        nextLotButton.setText("Следующий лот");
+        nextLotButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextLotButtonActionPerformed(evt);
+            }
+        });
+
+        exitAuctionButton.setBackground(new java.awt.Color(253, 240, 228));
+        exitAuctionButton.setFont(new java.awt.Font("Gabriola", 2, 24)); // NOI18N
+        exitAuctionButton.setText("Завершить аукцион");
+        exitAuctionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitAuctionButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout chooseExitOrNextPanelLayout = new javax.swing.GroupLayout(chooseExitOrNextPanel);
+        chooseExitOrNextPanel.setLayout(chooseExitOrNextPanelLayout);
+        chooseExitOrNextPanelLayout.setHorizontalGroup(
+            chooseExitOrNextPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseExitOrNextPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(chooseExitOrNextPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nextLotButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(exitAuctionButton, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        chooseExitOrNextPanelLayout.setVerticalGroup(
+            chooseExitOrNextPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chooseExitOrNextPanelLayout.createSequentialGroup()
+                .addContainerGap(101, Short.MAX_VALUE)
+                .addComponent(nextLotButton)
+                .addGap(18, 18, 18)
+                .addComponent(exitAuctionButton)
+                .addGap(83, 83, 83))
+        );
+
+        javax.swing.GroupLayout chooseExitOrNextDialogLayout = new javax.swing.GroupLayout(chooseExitOrNextDialog.getContentPane());
+        chooseExitOrNextDialog.getContentPane().setLayout(chooseExitOrNextDialogLayout);
+        chooseExitOrNextDialogLayout.setHorizontalGroup(
+            chooseExitOrNextDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseExitOrNextDialogLayout.createSequentialGroup()
+                .addComponent(chooseExitOrNextPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        chooseExitOrNextDialogLayout.setVerticalGroup(
+            chooseExitOrNextDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseExitOrNextDialogLayout.createSequentialGroup()
+                .addComponent(chooseExitOrNextPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
+        choosePrevLotPanel.setBackground(new java.awt.Color(239, 210, 190));
+        choosePrevLotPanel.setFocusCycleRoot(true);
+        choosePrevLotPanel.setMinimumSize(new java.awt.Dimension(500, 300));
+        choosePrevLotPanel.setName(""); // NOI18N
+        choosePrevLotPanel.setPreferredSize(new java.awt.Dimension(500, 300));
+
+        choosePrevLotLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
+        choosePrevLotLabel.setText("Выберите лот, который уже продали:");
+
+        prevLotsComboBox.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
+        prevLotsComboBox.setMaximumRowCount(50);
+        prevLotsComboBox.setMinimumSize(new java.awt.Dimension(470, 38));
+        prevLotsComboBox.setPreferredSize(new java.awt.Dimension(470, 38));
+        prevLotsComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prevLotsComboBoxActionPerformed(evt);
+            }
+        });
+
+        seePrevLotChangesButton.setBackground(new java.awt.Color(253, 240, 228));
+        seePrevLotChangesButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
+        seePrevLotChangesButton.setText("Просмотреть динамику цены");
+        seePrevLotChangesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seePrevLotChangesButtonActionPerformed(evt);
+            }
+        });
+
+        closePrevGraphButton.setBackground(new java.awt.Color(253, 240, 228));
+        closePrevGraphButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
+        closePrevGraphButton.setText("Закрыть результаты");
+        closePrevGraphButton.setMaximumSize(new java.awt.Dimension(470, 39));
+        closePrevGraphButton.setMinimumSize(new java.awt.Dimension(470, 39));
+        closePrevGraphButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        closePrevGraphButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closePrevGraphButtonActionPerformed(evt);
+            }
+        });
+
+        closeHistoryButton.setBackground(new java.awt.Color(253, 240, 228));
+        closeHistoryButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
+        closeHistoryButton.setText("Закончить анализ предыдущих продаж");
+        closeHistoryButton.setMaximumSize(new java.awt.Dimension(470, 39));
+        closeHistoryButton.setMinimumSize(new java.awt.Dimension(470, 39));
+        closeHistoryButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        closeHistoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeHistoryButtonActionPerformed(evt);
+            }
+        });
+
+        prevSellInfoLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
+        prevSellInfoLabel.setText("Приобрёл ... за ....");
+
+        javax.swing.GroupLayout choosePrevLotPanelLayout = new javax.swing.GroupLayout(choosePrevLotPanel);
+        choosePrevLotPanel.setLayout(choosePrevLotPanelLayout);
+        choosePrevLotPanelLayout.setHorizontalGroup(
+            choosePrevLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(choosePrevLotPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(choosePrevLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(choosePrevLotLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                    .addGroup(choosePrevLotPanelLayout.createSequentialGroup()
+                        .addGroup(choosePrevLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(closeHistoryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(prevLotsComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(closePrevGraphButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(seePrevLotChangesButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(prevSellInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        choosePrevLotPanelLayout.setVerticalGroup(
+            choosePrevLotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(choosePrevLotPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(choosePrevLotLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(prevLotsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(prevSellInfoLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(seePrevLotChangesButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closePrevGraphButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closeHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+        );
+
+        javax.swing.GroupLayout choosePrevLotDialogLayout = new javax.swing.GroupLayout(choosePrevLotDialog.getContentPane());
+        choosePrevLotDialog.getContentPane().setLayout(choosePrevLotDialogLayout);
+        choosePrevLotDialogLayout.setHorizontalGroup(
+            choosePrevLotDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(choosePrevLotDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(choosePrevLotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        choosePrevLotDialogLayout.setVerticalGroup(
+            choosePrevLotDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(choosePrevLotDialogLayout.createSequentialGroup()
+                .addComponent(choosePrevLotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 200, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1211,20 +1491,16 @@ public class GraphJFrame extends javax.swing.JFrame {
         dm.setTempRadioButton(lot46RadioButton);
     }//GEN-LAST:event_lot46RadioButtonActionPerformed
 
-    private void sellButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellButtonActionPerformed
+    private void chooseModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseModeButtonActionPerformed
         // TODO add your handling code here:
         dm.decreaseLot_id();
         int lot_id = dm.getLot_id();
         System.out.println(lot_id);
         if (lot_id >= 0) {
-            dm.initModelingAuction(true, lot_id);
-            dm.modelingAuction(true, lot_id);
             chooseLotDialog.setVisible(false);
-            resultStepDialog.setVisible(true);
-            leaderLabel.setText(dm.getLeaderName());
-            priceLabel.setText(String.valueOf(dm.getLeaderPrice()));
+            chooseModeDialog.setVisible(true);
         }
-    }//GEN-LAST:event_sellButtonActionPerformed
+    }//GEN-LAST:event_chooseModeButtonActionPerformed
 
     private void lot1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lot1RadioButtonActionPerformed
         // TODO add your handling code here:
@@ -1427,24 +1703,127 @@ public class GraphJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         dm.setLot_id(-1);
         this.dispose();
-        chooseLotDialog.setVisible(false);
+        dm.unvizualizeDataset();
+        autoRadioButton.setSelected(false);
+        manualRadioButton.setSelected(false);
+        this.seeDynamicPriceButton.setVisible(true);
+        this.seeParamsParticipantsButton.setVisible(true);
+        this.closeButton.setVisible(false);
+        chooseModeDialog.setVisible(false);
         resultStepDialog.setVisible(false);
         choosePersonDialog.setVisible(false);
         showPersonParamsDialog.setVisible(false);
-        System.exit(0);
+        chooseExitOrNextDialog.setVisible(true);
     }//GEN-LAST:event_closeAllButtonActionPerformed
+
+    private void sellButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellButtonActionPerformed
+        // TODO add your handling code here:
+        int lot_id = dm.getLot_id();
+        dm.initModelingAuction(true, lot_id);
+        if (autoRadioButton.isSelected()){
+            dm.modelingAuction(true, lot_id);
+            resultStepDialog.setVisible(true);
+            leaderLabel.setText(dm.getLeaderName());
+            priceLabel.setText(String.valueOf(dm.getLeaderPrice()));
+            if (dm.isPrevLots()){
+                seeHistoryButton.setVisible(true);
+            } else {                
+                seeHistoryButton.setVisible(false);
+            }
+        } else if (manualRadioButton.isSelected()){
+        }
+        
+    }//GEN-LAST:event_sellButtonActionPerformed
+
+    private void exitAuctionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitAuctionButtonActionPerformed
+        // TODO add your handling code here:
+        chooseExitOrNextDialog.setVisible(false);
+        this.dispose();
+        chooseLotDialog.setVisible(false);
+        System.exit(0);
+    }//GEN-LAST:event_exitAuctionButtonActionPerformed
+
+    private void nextLotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextLotButtonActionPerformed
+        // TODO add your handling code here:
+        chooseExitOrNextDialog.setVisible(false);
+        
+        chooseLotDialog.setVisible(true);
+    }//GEN-LAST:event_nextLotButtonActionPerformed
+
+    private void seeHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeHistoryButtonActionPerformed
+        // TODO add your handling code here:  
+        prevLotsComboBox.removeAllItems();
+        Collection<String> items = dm.getNamesPrevLots().values();
+        int i = 0;
+        for (String s : items){
+            i++;
+            if (i != items.size()){
+                prevLotsComboBox.addItem(s);
+            }
+        }
+        resultStepDialog.setVisible(false);
+        seePrevLotChangesButton.setVisible(true);
+        closePrevGraphButton.setVisible(false);
+        closeHistoryButton.setVisible(true);
+        choosePrevLotDialog.setVisible(true);
+        showPersonParamsDialog.setVisible(false);
+        
+    }//GEN-LAST:event_seeHistoryButtonActionPerformed
+
+    private void prevLotsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevLotsComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prevLotsComboBoxActionPerformed
+
+    private void seePrevLotChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seePrevLotChangesButtonActionPerformed
+        // TODO add your handling code here:
+        int lot_id = prevLotsComboBox.getSelectedIndex();
+        prevSellInfoLabel.setText("Приобрёл "+dm.getPrevLeaderName(lot_id)+" за " + dm.getPrevLeaderPrice(lot_id));
+        dm.vizualizeDataset(lot_id);
+        seePrevLotChangesButton.setVisible(false);
+        closePrevGraphButton.setVisible(true);
+        closeHistoryButton.setVisible(true);
+    }//GEN-LAST:event_seePrevLotChangesButtonActionPerformed
+
+    private void closePrevGraphButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closePrevGraphButtonActionPerformed
+        // TODO add your handling code here:
+        seePrevLotChangesButton.setVisible(true);
+        closePrevGraphButton.setVisible(false);
+        closeHistoryButton.setVisible(true);
+        dm.unvizualizeDataset();
+    }//GEN-LAST:event_closePrevGraphButtonActionPerformed
+
+    private void closeHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeHistoryButtonActionPerformed
+        // TODO add your handling code here:
+        dm.unvizualizeDataset();
+        choosePrevLotDialog.setVisible(false);
+        resultStepDialog.setVisible(true);
+        prevSellInfoLabel.setText("Приобрёл ... за ....");
+    }//GEN-LAST:event_closeHistoryButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton autoRadioButton;
+    private javax.swing.JDialog chooseExitOrNextDialog;
+    private javax.swing.JPanel chooseExitOrNextPanel;
     private javax.swing.JDialog chooseLotDialog;
     private javax.swing.JLabel chooseLotLabel;
     private javax.swing.JPanel chooseLotPanel;
+    private javax.swing.JButton chooseModeButton;
+    private javax.swing.JDialog chooseModeDialog;
+    private javax.swing.JLabel chooseModeLabel;
+    private javax.swing.JPanel chooseModePanel;
     private javax.swing.JLabel chooseParticipantLabel;
     private javax.swing.JDialog choosePersonDialog;
     private javax.swing.JPanel choosePersonPanel;
+    private javax.swing.JDialog choosePrevLotDialog;
+    private javax.swing.JLabel choosePrevLotLabel;
+    private javax.swing.JPanel choosePrevLotPanel;
     private javax.swing.JButton closeAllButton;
     private javax.swing.JButton closeButton;
+    private javax.swing.JButton closeHistoryButton;
+    private javax.swing.JButton closePrevGraphButton;
     private javax.swing.JButton closeShowParamsButton;
+    private javax.swing.JButton exitAuctionButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel leaderInfoLabel;
     private javax.swing.JLabel leaderLabel;
@@ -1499,16 +1878,23 @@ public class GraphJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton lot8RadioButton;
     private javax.swing.JRadioButton lot9RadioButton;
     private javax.swing.ButtonGroup lotsButtonGroup;
+    private javax.swing.JRadioButton manualRadioButton;
+    private javax.swing.ButtonGroup modeButtonGroup;
+    private javax.swing.JButton nextLotButton;
     private javax.swing.JTable parametersTable;
     private javax.swing.JLabel participantLabel;
     private javax.swing.JComboBox<String> partiсipantsComboBox;
+    private javax.swing.JComboBox<String> prevLotsComboBox;
+    private javax.swing.JLabel prevSellInfoLabel;
     private javax.swing.JLabel priceInfoLabel;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JDialog resultStepDialog;
     private javax.swing.JPanel resultStepPanel;
     private javax.swing.JButton seeDynamicPriceButton;
+    private javax.swing.JButton seeHistoryButton;
     private javax.swing.JButton seeParamsParticipantsButton;
     private javax.swing.JButton seePersonParamsButton;
+    private javax.swing.JButton seePrevLotChangesButton;
     private javax.swing.JButton sellButton;
     private javax.swing.JDialog showPersonParamsDialog;
     private javax.swing.JPanel showPersonParamsPanel;

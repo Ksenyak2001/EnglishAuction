@@ -15,6 +15,44 @@ import org.jfree.data.xy.XYDataset;
  */
 public class HistoryManipulation {
 
+    public ArrayList<Double> getPrevPrices() {
+        return prevPrices;
+    }
+
+    public void setPrevPrices(ArrayList<Double> prevPrices) {
+        this.prevPrices = prevPrices;
+    }
+
+    public void addPrevPrices(double price) {
+        this.prevPrices.add(price);
+    }
+    
+    public ArrayList<String> getPrevLeaders() {
+        return prevLeaders;
+    }
+
+    public void setPrevLeaders(ArrayList<String> prevLeaders) {
+        this.prevLeaders = prevLeaders;
+    }
+
+    public void addPrevLeaders(String leader) {
+        this.prevLeaders.add(leader);
+    }
+    
+    
+    public ArrayList<String> getPrevLots_id() {
+        return prevLots_id;
+    }
+
+    public void setPrevLots_id(ArrayList<String> datasets_lots) {
+        this.prevLots_id = datasets_lots;
+    }
+
+    public void addPrevLots_id(String dataset_lot) {
+        this.prevLots_id.add(dataset_lot);
+    }
+    
+    
     public ArrayList<Dataset> getDatasets() {
         return datasets;
     }
@@ -40,7 +78,6 @@ public class HistoryManipulation {
         this.setTemp_dataset_lot(dataset_lot);
         this.datasets_lots.add(dataset_lot);
     }
-
     
     public Dataset getTemp_dataset() {
         return temp_dataset;
@@ -58,6 +95,9 @@ public class HistoryManipulation {
         this.temp_dataset_lot = temp_dataset_lot;
     }
     
+    private ArrayList<String> prevLots_id;
+    private ArrayList<String> prevLeaders;
+    private ArrayList<Double> prevPrices;
     private ArrayList<Dataset> datasets;
     private ArrayList<XYDataset> datasets_lots;
     private Dataset temp_dataset;
@@ -77,6 +117,9 @@ public class HistoryManipulation {
         this.tempRadioButton = tempRadioButton;
     }
     public HistoryManipulation(){
+        prevLots_id = new ArrayList<>();
+        prevLeaders = new ArrayList<>();
+        prevPrices = new ArrayList<>();
         datasets = new ArrayList<>();
         datasets_lots = new ArrayList<>();
     }
