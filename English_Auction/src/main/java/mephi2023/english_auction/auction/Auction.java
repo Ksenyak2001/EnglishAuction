@@ -11,7 +11,33 @@ import mephi2023.english_auction.person.Person;
  * @author Kseny
  */
 public class Auction {
+    
+    private static double prev_price;
+    private static double zero_price;
+    private static double avg_grow_prev_price;
+    private static double avg_grow_prev2_price;
+    private static int count_participants;
+    private static int count_temp_rates;
 
+    private static Person leader;
+    
+    
+    public static double getActivity() {
+        if (avg_grow_prev2_price == 0){
+            return 0;
+        }
+        double delta = (avg_grow_prev_price-avg_grow_prev2_price)/avg_grow_prev2_price;
+        return (Math.exp(delta)/(1+Math.exp(delta)));
+    }
+        
+    public static double getAuction_growth() {
+        if (prev_price == 0){
+            return -1;
+        }
+        return (prev_price-zero_price)/prev_price;
+    }
+        
+    
     public static Person getLeader() {
         return leader;
     }
@@ -28,21 +54,6 @@ public class Auction {
         Auction.count_participants = count_participants;
     }
 
-    public static double getActivity() {
-        if (avg_grow_prev2_price == 0){
-            return 0;
-        }
-        double delta = (avg_grow_prev_price-avg_grow_prev2_price)/avg_grow_prev2_price;
-        return (Math.exp(delta)/(1+Math.exp(delta)));
-    }
-    
-    public static double getAuction_growth() {
-        if (prev_price == 0){
-            return -1;
-        }
-        return (prev_price-zero_price)/prev_price;
-    }
-        
     public static double getPrev_price() {
         return prev_price;
     }
@@ -75,9 +86,22 @@ public class Auction {
         Auction.avg_grow_prev2_price = avg_grow_prev2_price;
     }
     
+    public static int getCount_temp_rates() {
+        return count_temp_rates;
+    }
+
+    public static void setCount_temp_rates(int count_temp_rates) {
+        Auction.count_temp_rates = count_temp_rates;
+    }
+    
+    public static void addCount_temp_rates() {
+        Auction.count_temp_rates++;
+    }
+    
     public static void init() {
         prev_price = 0;
         zero_price = 0;
+        count_temp_rates = 0;
         avg_grow_prev_price = 0;
         avg_grow_prev2_price = 0;
         count_participants = -1;
@@ -87,10 +111,4 @@ public class Auction {
         init();
         zero_price = price;
     }
-    private static double prev_price;
-    private static double zero_price;
-    private static double avg_grow_prev_price;
-    private static double avg_grow_prev2_price;
-    private static int count_participants;
-    private static Person leader;
 }

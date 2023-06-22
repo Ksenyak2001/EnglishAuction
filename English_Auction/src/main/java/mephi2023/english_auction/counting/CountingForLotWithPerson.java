@@ -4,7 +4,6 @@
  */
 package mephi2023.english_auction.counting;
 
-import mephi2023.english_auction.counting.CountFCL;
 import java.util.ArrayList;
 import mephi2023.english_auction.auction.Auction;
 import mephi2023.english_auction.MainDataOperations;
@@ -15,17 +14,7 @@ import mephi2023.english_auction.lot.Lot;
  *
  * @author Kseny
  */
-public class CountingForLotWithPerson {
-    private static ArrayList<String> res_params;
-    private static ArrayList<Object> values;
-    private static String res_name;
-    private static int min_value;
-    private static int max_value;
-    private static int count;
-    
-    private static double doRightView(double value){
-        return (value*(max_value - min_value)/count + min_value);
-    }
+public class CountingForLotWithPerson extends CountingForSmth{
     
     private static void initAcceptabilityPrice(Lot lot, Person person){
         res_params = new ArrayList<>();
@@ -100,16 +89,16 @@ public class CountingForLotWithPerson {
         values.add(Auction.getActivity());
         values.add(Auction.getAuction_growth());
         values.add(lot.countDifPrice());        
-        min_value = -1;
-        max_value = 1;
+        min_value = 0;
+        max_value = 10;
         count = 10;
     }
     public static void countAssurance(String file_name, Lot lot, Person person) {
         initAssurance(lot, person);
         double temp_assurance = person.getAssurance();   
         double ta = CountFCL.countCoef(file_name, res_name, res_params, values);     
-        //temp_assurance += doRightView(ta);
-        temp_assurance += ta;
+        temp_assurance += doRightView(ta);
+        //temp_assurance += ta;
         person.setAssurance(temp_assurance);    
         
         try {

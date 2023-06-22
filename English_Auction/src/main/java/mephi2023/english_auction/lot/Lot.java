@@ -5,21 +5,12 @@
 package mephi2023.english_auction.lot;
 
 import java.util.ArrayList;
-import mephi2023.english_auction.counting.CountFCL;
 
 /**
  *
  * @author Kseny
  */
 public class Lot {
-
-    public ArrayList<String> getParam_names() {
-        return param_names;
-    }
-
-    public void setParam_names(ArrayList<String> param_names) {
-        this.param_names = param_names;
-    }
     private String lot_name;
     private int fame;
     private int significance;
@@ -38,7 +29,7 @@ public class Lot {
         param_names.add("significance");
         res_name = "D";
     };
-    
+    /*
     public Lot(String lot_name, int fame, int significance, int rarity) {
         this.prev_price = 0;
         this.now_price = 0;
@@ -46,18 +37,26 @@ public class Lot {
         this.fame = fame;
         this.significance = significance;
         this.rarity = rarity;
+    }*/
+
+    public ArrayList<String> getParam_names() {
+        return param_names;
+    }
+
+    public void setParam_names(ArrayList<String> param_names) {
+        this.param_names = param_names;
     }
     
     public String getRes_name(){
-        return "D";
+        return res_name;
     }
-    
+    /*
     public void countPrice(String file_name) {
         int base_price = 5;
         this.prev_price = this.now_price;
         this.now_price = base_price*CountFCL.countCoef(file_name, this.res_name, 
                         this.param_names, this.getValues());        
-    }   
+    }  */ 
 
     public void setPrev_price(double prev_price) {
         this.prev_price = prev_price;

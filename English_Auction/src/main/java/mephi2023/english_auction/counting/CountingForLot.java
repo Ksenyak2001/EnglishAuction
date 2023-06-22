@@ -4,16 +4,13 @@
  */
 package mephi2023.english_auction.counting;
 
-import mephi2023.english_auction.counting.CountFCL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import mephi2023.english_auction.lot.Lot;
 
 /**
  *
  * @author Kseny
  */
-public class CountingForLot {
+public class CountingForLot extends CountingForSmth{
     public static void countPrice(String file_name, Lot lot) {
         int base_price = 2;
         lot.setPrev_price(lot.getNow_price());

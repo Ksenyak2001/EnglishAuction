@@ -4,7 +4,6 @@
  */
 package mephi2023.english_auction.counting;
 
-import mephi2023.english_auction.counting.CountFCL;
 import java.util.ArrayList;
 import mephi2023.english_auction.auction.Auction;
 import mephi2023.english_auction.person.Person;
@@ -13,17 +12,7 @@ import mephi2023.english_auction.person.Person;
  *
  * @author Kseny
  */
-public class CountingForPerson {
-    private static ArrayList<String> res_params;
-    private static ArrayList<Object> values;
-    private static String res_name;
-    private static int min_value;
-    private static int max_value;
-    private static int count;
-    
-    private static double doRightView(double value){
-        return (value*(max_value - min_value)/count + min_value);
-    }
+public class CountingForPerson extends CountingForSmth{
     
     private static double returnTrueValue(double value){
         if (value < 0){
@@ -45,16 +34,16 @@ public class CountingForPerson {
         values.add(person.getStinginess());
         values.add(person.getAcceptability());
         values.add(person.getWelfare());
-        min_value = -1;
-        max_value = 1;
+        min_value = 0;
+        max_value = 10;
         count = 10;
     }
     public static void countFear_of_poverty(String file_name, Person person) {
         double temp_fear_of_poverty = person.getFear_of_poverty();
         initFear_of_poverty(person);
         double tfop = CountFCL.countCoef(file_name, res_name, res_params, values);
-        //temp_fear_of_poverty += doRightView(tfop);
-        temp_fear_of_poverty += tfop;
+        temp_fear_of_poverty += doRightView(tfop);
+        //temp_fear_of_poverty += tfop;
         person.setFear_of_poverty(temp_fear_of_poverty);   
         
         try {
@@ -135,8 +124,10 @@ public class CountingForPerson {
         values = new ArrayList<>();
         values.add(returnTrueValue(person.getExcitement()));
         values.add(returnTrueValue(person.getFear_of_loss()));
-        min_value = 1;
-        max_value = 2;
+        //min_value = 1;
+        //max_value = 2;
+        min_value = 0;
+        max_value = 1;
         count = 10;
     }
     public static void countRate_of_price_increase(String file_name, Person person) {

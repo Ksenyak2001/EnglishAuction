@@ -22,7 +22,7 @@ import org.jfree.data.xy.XYDataset;
  * @author Kseny
  */
 public class LineChart extends ApplicationFrame {
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
 
     public LineChart(final String title, XYDataset dataset) {
         super(title);

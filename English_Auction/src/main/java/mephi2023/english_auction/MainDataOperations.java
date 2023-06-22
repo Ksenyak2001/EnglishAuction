@@ -15,10 +15,19 @@ import mephi2023.english_auction.lot.Lot;
  */
 public class MainDataOperations {
 
+    
+    private static ArrayList<Lot> lots;
+    private static ArrayList<Person> persons; 
+    private static ArrayList<Person> participants;
+    //private static ArrayList<Person> tourParticipants;
+    private static boolean auto;  
+    private static int lot_id = -1; 
+    private static int count_pass;
+    private static int manual_numb_step = 0;
+    
     public static ArrayList<Lot> getLots() {
         return lots;
     }
-
 
     public static ArrayList<Person> getPersons() {
         return persons;
@@ -52,13 +61,14 @@ public class MainDataOperations {
         }
     }
     
-    private static ArrayList<Lot> lots;
-    private static ArrayList<Person> persons; 
-    private static ArrayList<Person> participants;
-    private static boolean auto;  
-    private static int lot_id = -1; 
-    private static int count_pass;
 
+    public static int getManual_numb_step() {
+        return manual_numb_step;
+    }
+
+    public static void setManual_numb_step(int manual_numb_step) {
+        MainDataOperations.manual_numb_step = manual_numb_step;
+    }
     public static ArrayList<Person> getParticipants() {
         return participants;
     }
@@ -66,6 +76,13 @@ public class MainDataOperations {
     public static void setParticipants(ArrayList<Person> participants) {
         MainDataOperations.participants = participants;
     }
+    /*public static ArrayList<Person> getTourParticipants() {
+        return tourParticipants;
+    }
+
+    public static void setTourParticipants(ArrayList<Person> tourParticipants) {
+        MainDataOperations.tourParticipants = tourParticipants;
+    }*/
 
     public static int getLot_id() {
         return lot_id;

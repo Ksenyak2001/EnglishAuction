@@ -4,11 +4,8 @@
  */
 package mephi2023.english_auction;
 
-import java.awt.Button;
+import mephi2023.english_auction.manipulation.DataManipulation;
 import java.util.Collection;
-import javax.swing.ComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JRadioButton;
 
 /**
  *
@@ -23,7 +20,7 @@ public class GraphJFrame extends javax.swing.JFrame {
         initComponents();
         chooseLotDialog.setBounds(100, 100, 500, 300);
         chooseLotDialog.setVisible(false);
-        resultStepDialog.setBounds(100, 100, 500, 350);
+        resultStepDialog.setBounds(100, 100, 550, 350);
         resultStepDialog.setVisible(false);
         choosePersonDialog.setBounds(100, 100, 550, 300);
         choosePersonDialog.setVisible(false);
@@ -33,10 +30,17 @@ public class GraphJFrame extends javax.swing.JFrame {
         chooseModeDialog.setVisible(false);
         chooseExitOrNextDialog.setBounds(100, 100, 500, 300);
         chooseExitOrNextDialog.setVisible(false);
-        choosePrevLotDialog.setBounds(100, 100, 600, 350);
+        choosePrevLotDialog.setBounds(100, 100, 550, 350);
         choosePrevLotDialog.setVisible(false);
+        oneTourDialog.setBounds(100, 100, 550, 350);
+        oneTourDialog.setVisible(false);
+        allLotsInTableDialog.setBounds(100, 100, 600, 500);
+        allLotsInTableDialog.setVisible(false);
+        chooseWhatLotSeeDialog.setBounds(100, 100, 500, 300);
+        chooseWhatLotSeeDialog.setVisible(false);
         dm = new DataManipulation();
         closeButton.setVisible(false);
+        endTourButton.setVisible(false);
     }
 
     /**
@@ -144,6 +148,28 @@ public class GraphJFrame extends javax.swing.JFrame {
         closePrevGraphButton = new javax.swing.JButton();
         closeHistoryButton = new javax.swing.JButton();
         prevSellInfoLabel = new javax.swing.JLabel();
+        oneTourDialog = new javax.swing.JDialog();
+        oneTourPanel = new javax.swing.JPanel();
+        countStepInfoLabel = new javax.swing.JLabel();
+        seeParticipantsParamsButton = new javax.swing.JButton();
+        seePeopleParamsButton = new javax.swing.JButton();
+        seeMaxRateButton = new javax.swing.JButton();
+        nextTourButton = new javax.swing.JButton();
+        maxRateInfoLabel = new javax.swing.JLabel();
+        endTourButton = new javax.swing.JButton();
+        chooseWhatLotSeeDialog = new javax.swing.JDialog();
+        chooseWhatLotSeePanel = new javax.swing.JPanel();
+        chooseWhatLotSeeLabel = new javax.swing.JLabel();
+        concreteLotRadioButton = new javax.swing.JRadioButton();
+        allLotsRadioButton = new javax.swing.JRadioButton();
+        seeInfoLotOrAllLotsButton = new javax.swing.JButton();
+        lotOrAllLotsButtonGroup = new javax.swing.ButtonGroup();
+        allLotsInTableDialog = new javax.swing.JDialog();
+        choosePrevLotPanel1 = new javax.swing.JPanel();
+        closePrevTableButton = new javax.swing.JButton();
+        closeAllLotsHistoryButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        prevLotsInfoTable = new javax.swing.JTable();
         startPanel = new javax.swing.JPanel();
         startAuctionButton = new javax.swing.JButton();
 
@@ -778,9 +804,9 @@ public class GraphJFrame extends javax.swing.JFrame {
         seeParamsParticipantsButton.setBackground(new java.awt.Color(253, 240, 228));
         seeParamsParticipantsButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
         seeParamsParticipantsButton.setText("Посмотреть параметры участников");
-        seeParamsParticipantsButton.setMaximumSize(new java.awt.Dimension(470, 39));
-        seeParamsParticipantsButton.setMinimumSize(new java.awt.Dimension(470, 39));
-        seeParamsParticipantsButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        seeParamsParticipantsButton.setMaximumSize(new java.awt.Dimension(450, 39));
+        seeParamsParticipantsButton.setMinimumSize(new java.awt.Dimension(450, 39));
+        seeParamsParticipantsButton.setPreferredSize(new java.awt.Dimension(450, 39));
         seeParamsParticipantsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seeParamsParticipantsButtonActionPerformed(evt);
@@ -791,9 +817,9 @@ public class GraphJFrame extends javax.swing.JFrame {
         seeDynamicPriceButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
         seeDynamicPriceButton.setText("Посмотреть динамику цены");
         seeDynamicPriceButton.setAutoscrolls(true);
-        seeDynamicPriceButton.setMaximumSize(new java.awt.Dimension(470, 39));
-        seeDynamicPriceButton.setMinimumSize(new java.awt.Dimension(470, 39));
-        seeDynamicPriceButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        seeDynamicPriceButton.setMaximumSize(new java.awt.Dimension(450, 39));
+        seeDynamicPriceButton.setMinimumSize(new java.awt.Dimension(450, 39));
+        seeDynamicPriceButton.setPreferredSize(new java.awt.Dimension(450, 39));
         seeDynamicPriceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seeDynamicPriceButtonActionPerformed(evt);
@@ -803,9 +829,9 @@ public class GraphJFrame extends javax.swing.JFrame {
         closeButton.setBackground(new java.awt.Color(253, 240, 228));
         closeButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
         closeButton.setText("Закрыть результаты");
-        closeButton.setMaximumSize(new java.awt.Dimension(470, 39));
-        closeButton.setMinimumSize(new java.awt.Dimension(470, 39));
-        closeButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        closeButton.setMaximumSize(new java.awt.Dimension(450, 39));
+        closeButton.setMinimumSize(new java.awt.Dimension(450, 39));
+        closeButton.setPreferredSize(new java.awt.Dimension(450, 39));
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeButtonActionPerformed(evt);
@@ -815,9 +841,9 @@ public class GraphJFrame extends javax.swing.JFrame {
         closeAllButton.setBackground(new java.awt.Color(253, 240, 228));
         closeAllButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
         closeAllButton.setText("Закончить анализ продажи");
-        closeAllButton.setMaximumSize(new java.awt.Dimension(470, 39));
-        closeAllButton.setMinimumSize(new java.awt.Dimension(470, 39));
-        closeAllButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        closeAllButton.setMaximumSize(new java.awt.Dimension(450, 39));
+        closeAllButton.setMinimumSize(new java.awt.Dimension(450, 39));
+        closeAllButton.setPreferredSize(new java.awt.Dimension(450, 39));
         closeAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeAllButtonActionPerformed(evt);
@@ -839,9 +865,9 @@ public class GraphJFrame extends javax.swing.JFrame {
         seeHistoryButton.setBackground(new java.awt.Color(253, 240, 228));
         seeHistoryButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
         seeHistoryButton.setText("Посмотреть информацию о проданных лотах");
-        seeHistoryButton.setMaximumSize(new java.awt.Dimension(470, 39));
-        seeHistoryButton.setMinimumSize(new java.awt.Dimension(470, 39));
-        seeHistoryButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        seeHistoryButton.setMaximumSize(new java.awt.Dimension(450, 39));
+        seeHistoryButton.setMinimumSize(new java.awt.Dimension(450, 39));
+        seeHistoryButton.setPreferredSize(new java.awt.Dimension(450, 39));
         seeHistoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seeHistoryButtonActionPerformed(evt);
@@ -1286,6 +1312,281 @@ public class GraphJFrame extends javax.swing.JFrame {
                 .addGap(0, 200, Short.MAX_VALUE))
         );
 
+        oneTourPanel.setBackground(new java.awt.Color(239, 210, 190));
+        oneTourPanel.setMinimumSize(new java.awt.Dimension(500, 300));
+        oneTourPanel.setPreferredSize(new java.awt.Dimension(500, 300));
+
+        countStepInfoLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
+        countStepInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        countStepInfoLabel.setText("...");
+
+        seeParticipantsParamsButton.setBackground(new java.awt.Color(253, 240, 228));
+        seeParticipantsParamsButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
+        seeParticipantsParamsButton.setText("Посмотреть параметры участников");
+        seeParticipantsParamsButton.setMaximumSize(new java.awt.Dimension(450, 39));
+        seeParticipantsParamsButton.setMinimumSize(new java.awt.Dimension(450, 39));
+        seeParticipantsParamsButton.setPreferredSize(new java.awt.Dimension(450, 39));
+        seeParticipantsParamsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seeParticipantsParamsButtonActionPerformed(evt);
+            }
+        });
+
+        seePeopleParamsButton.setBackground(new java.awt.Color(253, 240, 228));
+        seePeopleParamsButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
+        seePeopleParamsButton.setText("Посмотреть параметры всех людей");
+        seePeopleParamsButton.setAutoscrolls(true);
+        seePeopleParamsButton.setMaximumSize(new java.awt.Dimension(450, 39));
+        seePeopleParamsButton.setMinimumSize(new java.awt.Dimension(450, 39));
+        seePeopleParamsButton.setPreferredSize(new java.awt.Dimension(450, 39));
+        seePeopleParamsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seePeopleParamsButtonActionPerformed(evt);
+            }
+        });
+
+        seeMaxRateButton.setBackground(new java.awt.Color(253, 240, 228));
+        seeMaxRateButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
+        seeMaxRateButton.setText("Посмотреть максимальную ставку в этом туре");
+        seeMaxRateButton.setMaximumSize(new java.awt.Dimension(450, 39));
+        seeMaxRateButton.setMinimumSize(new java.awt.Dimension(450, 39));
+        seeMaxRateButton.setPreferredSize(new java.awt.Dimension(450, 39));
+        seeMaxRateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seeMaxRateButtonActionPerformed(evt);
+            }
+        });
+
+        nextTourButton.setBackground(new java.awt.Color(253, 240, 228));
+        nextTourButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
+        nextTourButton.setText("Следующий тур");
+        nextTourButton.setMaximumSize(new java.awt.Dimension(450, 39));
+        nextTourButton.setMinimumSize(new java.awt.Dimension(450, 39));
+        nextTourButton.setPreferredSize(new java.awt.Dimension(450, 39));
+        nextTourButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextTourButtonActionPerformed(evt);
+            }
+        });
+
+        maxRateInfoLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
+        maxRateInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        endTourButton.setBackground(new java.awt.Color(253, 240, 228));
+        endTourButton.setFont(new java.awt.Font("Gabriola", 3, 18)); // NOI18N
+        endTourButton.setText(" Завершить продажу");
+        endTourButton.setMaximumSize(new java.awt.Dimension(450, 39));
+        endTourButton.setMinimumSize(new java.awt.Dimension(450, 39));
+        endTourButton.setPreferredSize(new java.awt.Dimension(450, 39));
+        endTourButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                endTourButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout oneTourPanelLayout = new javax.swing.GroupLayout(oneTourPanel);
+        oneTourPanel.setLayout(oneTourPanelLayout);
+        oneTourPanelLayout.setHorizontalGroup(
+            oneTourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(oneTourPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(oneTourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(countStepInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nextTourButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                    .addComponent(seePeopleParamsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(seeMaxRateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(seeParticipantsParamsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(endTourButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(maxRateInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        oneTourPanelLayout.setVerticalGroup(
+            oneTourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(oneTourPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(countStepInfoLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(maxRateInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(seeParticipantsParamsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(seePeopleParamsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(seeMaxRateButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nextTourButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(endTourButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout oneTourDialogLayout = new javax.swing.GroupLayout(oneTourDialog.getContentPane());
+        oneTourDialog.getContentPane().setLayout(oneTourDialogLayout);
+        oneTourDialogLayout.setHorizontalGroup(
+            oneTourDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(oneTourDialogLayout.createSequentialGroup()
+                .addComponent(oneTourPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        oneTourDialogLayout.setVerticalGroup(
+            oneTourDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(oneTourDialogLayout.createSequentialGroup()
+                .addComponent(oneTourPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 14, Short.MAX_VALUE))
+        );
+
+        chooseWhatLotSeePanel.setBackground(new java.awt.Color(239, 210, 190));
+        chooseWhatLotSeePanel.setMinimumSize(new java.awt.Dimension(500, 300));
+
+        chooseWhatLotSeeLabel.setFont(new java.awt.Font("Gabriola", 3, 24)); // NOI18N
+        chooseWhatLotSeeLabel.setText("Выберите о чём информацию будем смотреть:");
+
+        lotOrAllLotsButtonGroup.add(concreteLotRadioButton);
+        concreteLotRadioButton.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
+        concreteLotRadioButton.setText("Конкретный лот");
+        concreteLotRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                concreteLotRadioButtonActionPerformed(evt);
+            }
+        });
+
+        lotOrAllLotsButtonGroup.add(allLotsRadioButton);
+        allLotsRadioButton.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
+        allLotsRadioButton.setText("Сводка по всем лотам");
+
+        seeInfoLotOrAllLotsButton.setBackground(new java.awt.Color(253, 240, 228));
+        seeInfoLotOrAllLotsButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
+        seeInfoLotOrAllLotsButton.setText("Посмотреть");
+        seeInfoLotOrAllLotsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seeInfoLotOrAllLotsButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout chooseWhatLotSeePanelLayout = new javax.swing.GroupLayout(chooseWhatLotSeePanel);
+        chooseWhatLotSeePanel.setLayout(chooseWhatLotSeePanelLayout);
+        chooseWhatLotSeePanelLayout.setHorizontalGroup(
+            chooseWhatLotSeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseWhatLotSeePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(chooseWhatLotSeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chooseWhatLotSeeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                    .addGroup(chooseWhatLotSeePanelLayout.createSequentialGroup()
+                        .addGroup(chooseWhatLotSeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(concreteLotRadioButton)
+                            .addComponent(allLotsRadioButton)
+                            .addComponent(seeInfoLotOrAllLotsButton))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        chooseWhatLotSeePanelLayout.setVerticalGroup(
+            chooseWhatLotSeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseWhatLotSeePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(chooseWhatLotSeeLabel)
+                .addGap(18, 18, 18)
+                .addComponent(concreteLotRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(allLotsRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(seeInfoLotOrAllLotsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
+        );
+
+        javax.swing.GroupLayout chooseWhatLotSeeDialogLayout = new javax.swing.GroupLayout(chooseWhatLotSeeDialog.getContentPane());
+        chooseWhatLotSeeDialog.getContentPane().setLayout(chooseWhatLotSeeDialogLayout);
+        chooseWhatLotSeeDialogLayout.setHorizontalGroup(
+            chooseWhatLotSeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseWhatLotSeeDialogLayout.createSequentialGroup()
+                .addComponent(chooseWhatLotSeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        chooseWhatLotSeeDialogLayout.setVerticalGroup(
+            chooseWhatLotSeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chooseWhatLotSeeDialogLayout.createSequentialGroup()
+                .addComponent(chooseWhatLotSeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        choosePrevLotPanel1.setBackground(new java.awt.Color(239, 210, 190));
+        choosePrevLotPanel1.setFocusCycleRoot(true);
+        choosePrevLotPanel1.setMinimumSize(new java.awt.Dimension(500, 300));
+        choosePrevLotPanel1.setName(""); // NOI18N
+
+        closePrevTableButton.setBackground(new java.awt.Color(253, 240, 228));
+        closePrevTableButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
+        closePrevTableButton.setText("Закрыть результаты");
+        closePrevTableButton.setMaximumSize(new java.awt.Dimension(470, 39));
+        closePrevTableButton.setMinimumSize(new java.awt.Dimension(470, 39));
+        closePrevTableButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        closePrevTableButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closePrevTableButtonActionPerformed(evt);
+            }
+        });
+
+        closeAllLotsHistoryButton.setBackground(new java.awt.Color(253, 240, 228));
+        closeAllLotsHistoryButton.setFont(new java.awt.Font("Gabriola", 2, 18)); // NOI18N
+        closeAllLotsHistoryButton.setText("Закончить анализ предыдущих продаж");
+        closeAllLotsHistoryButton.setMaximumSize(new java.awt.Dimension(470, 39));
+        closeAllLotsHistoryButton.setMinimumSize(new java.awt.Dimension(470, 39));
+        closeAllLotsHistoryButton.setPreferredSize(new java.awt.Dimension(470, 39));
+        closeAllLotsHistoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeAllLotsHistoryButtonActionPerformed(evt);
+            }
+        });
+
+        prevLotsInfoTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Лот", "Цена", "Лидер"
+            }
+        ));
+        jScrollPane2.setViewportView(prevLotsInfoTable);
+
+        javax.swing.GroupLayout choosePrevLotPanel1Layout = new javax.swing.GroupLayout(choosePrevLotPanel1);
+        choosePrevLotPanel1.setLayout(choosePrevLotPanel1Layout);
+        choosePrevLotPanel1Layout.setHorizontalGroup(
+            choosePrevLotPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(choosePrevLotPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(choosePrevLotPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(closeAllLotsHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(closePrevTableButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        choosePrevLotPanel1Layout.setVerticalGroup(
+            choosePrevLotPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(choosePrevLotPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closePrevTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closeAllLotsHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout allLotsInTableDialogLayout = new javax.swing.GroupLayout(allLotsInTableDialog.getContentPane());
+        allLotsInTableDialog.getContentPane().setLayout(allLotsInTableDialogLayout);
+        allLotsInTableDialogLayout.setHorizontalGroup(
+            allLotsInTableDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(allLotsInTableDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(choosePrevLotPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        allLotsInTableDialogLayout.setVerticalGroup(
+            allLotsInTableDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(allLotsInTableDialogLayout.createSequentialGroup()
+                .addComponent(choosePrevLotPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         startPanel.setBackground(new java.awt.Color(239, 210, 190));
@@ -1654,6 +1955,7 @@ public class GraphJFrame extends javax.swing.JFrame {
 
     private void seeParamsParticipantsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeParamsParticipantsButtonActionPerformed
         // TODO add your handling code here:
+        DataManipulation.flag_button = 0;
         partiсipantsComboBox.removeAllItems();
         Collection<String> items = dm.getNamesParticipants().values();
         for (String s : items){
@@ -1667,13 +1969,19 @@ public class GraphJFrame extends javax.swing.JFrame {
     private void seeDynamicPriceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeDynamicPriceButtonActionPerformed
         // TODO add your handling code here:
         dm.vizualizeDataset();
+        this.seeHistoryButton.setVisible(false);
         this.seeDynamicPriceButton.setVisible(false);
         this.seeParamsParticipantsButton.setVisible(false);
         this.closeButton.setVisible(true);
     }//GEN-LAST:event_seeDynamicPriceButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
+        if (dm.isPrevLots()){
+            seeHistoryButton.setVisible(true);
+        } else {                
+            seeHistoryButton.setVisible(false);
+        }
         dm.unvizualizeDataset();
         this.seeDynamicPriceButton.setVisible(true);
         this.seeParamsParticipantsButton.setVisible(true);
@@ -1684,7 +1992,7 @@ public class GraphJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         choosePersonDialog.setVisible(false);
         int person_id = partiсipantsComboBox.getSelectedIndex();
-        participantLabel.setText("Параметры учатника - "+String.valueOf(partiсipantsComboBox.getSelectedItem()));
+        participantLabel.setText("Параметры участника - "+String.valueOf(partiсipantsComboBox.getSelectedItem()));
         parametersTable.setModel(dm.drawModel(person_id));
         showPersonParamsDialog.setVisible(true);
     }//GEN-LAST:event_seePersonParamsButtonActionPerformed
@@ -1696,11 +2004,16 @@ public class GraphJFrame extends javax.swing.JFrame {
     private void closeShowParamsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeShowParamsButtonActionPerformed
         // TODO add your handling code here:
         showPersonParamsDialog.setVisible(false);
-        resultStepDialog.setVisible(true);
+        if (DataManipulation.flag_button == 0){
+            resultStepDialog.setVisible(true);
+        } else if (DataManipulation.flag_button == 1){
+            oneTourDialog.setVisible(true);
+        }
     }//GEN-LAST:event_closeShowParamsButtonActionPerformed
 
     private void closeAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeAllButtonActionPerformed
         // TODO add your handling code here:
+        this.seeHistoryButton.setVisible(true);
         dm.setLot_id(-1);
         this.dispose();
         dm.unvizualizeDataset();
@@ -1719,9 +2032,10 @@ public class GraphJFrame extends javax.swing.JFrame {
     private void sellButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellButtonActionPerformed
         // TODO add your handling code here:
         int lot_id = dm.getLot_id();
-        dm.initModelingAuction(true, lot_id);
         if (autoRadioButton.isSelected()){
-            dm.modelingAuction(true, lot_id);
+            dm.initModelingAuction(true, lot_id);
+            dm.modelingAuction(lot_id);
+            chooseModeDialog.setVisible(false);
             resultStepDialog.setVisible(true);
             leaderLabel.setText(dm.getLeaderName());
             priceLabel.setText(String.valueOf(dm.getLeaderPrice()));
@@ -1731,6 +2045,12 @@ public class GraphJFrame extends javax.swing.JFrame {
                 seeHistoryButton.setVisible(false);
             }
         } else if (manualRadioButton.isSelected()){
+            int n = 3;
+            chooseModeDialog.setVisible(false);
+            oneTourDialog.setVisible(true);
+            seeParticipantsParamsButton.setVisible(true);
+            dm.initModelingAuction(false, lot_id);
+            dm.modelingManualAuction(n, countStepInfoLabel);
         }
         
     }//GEN-LAST:event_sellButtonActionPerformed
@@ -1752,22 +2072,11 @@ public class GraphJFrame extends javax.swing.JFrame {
 
     private void seeHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeHistoryButtonActionPerformed
         // TODO add your handling code here:  
-        prevLotsComboBox.removeAllItems();
-        Collection<String> items = dm.getNamesPrevLots().values();
-        int i = 0;
-        for (String s : items){
-            i++;
-            if (i != items.size()){
-                prevLotsComboBox.addItem(s);
-            }
-        }
+        //&&&
+        chooseWhatLotSeeDialog.setVisible(true);
         resultStepDialog.setVisible(false);
-        seePrevLotChangesButton.setVisible(true);
         closePrevGraphButton.setVisible(false);
-        closeHistoryButton.setVisible(true);
-        choosePrevLotDialog.setVisible(true);
         showPersonParamsDialog.setVisible(false);
-        
     }//GEN-LAST:event_seeHistoryButtonActionPerformed
 
     private void prevLotsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevLotsComboBoxActionPerformed
@@ -1800,8 +2109,117 @@ public class GraphJFrame extends javax.swing.JFrame {
         prevSellInfoLabel.setText("Приобрёл ... за ....");
     }//GEN-LAST:event_closeHistoryButtonActionPerformed
 
+    private void seeParticipantsParamsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeParticipantsParamsButtonActionPerformed
+        // TODO add your handling code here:
+        DataManipulation.flag_button = 1;
+        partiсipantsComboBox.removeAllItems();
+        Collection<String> items = dm.getNamesTourParticipants().values();
+        for (String s : items){
+            partiсipantsComboBox.addItem(s);
+        }
+        //this.partiсipantsComboBox.setModel(aModel); = new JComboBox(items);
+        choosePersonDialog.setVisible(true);
+        oneTourDialog.setVisible(false);
+    }//GEN-LAST:event_seeParticipantsParamsButtonActionPerformed
+
+    private void seePeopleParamsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seePeopleParamsButtonActionPerformed
+        // TODO add your handling code here:
+        DataManipulation.flag_button = 1;
+        partiсipantsComboBox.removeAllItems();
+        Collection<String> items = dm.getNamesParticipants().values();
+        for (String s : items){
+            partiсipantsComboBox.addItem(s);
+        }
+        //this.partiсipantsComboBox.setModel(aModel); = new JComboBox(items);
+        choosePersonDialog.setVisible(true);
+        oneTourDialog.setVisible(false);
+    }//GEN-LAST:event_seePeopleParamsButtonActionPerformed
+
+    private void seeMaxRateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeMaxRateButtonActionPerformed
+        // TODO add your handling code here:
+        if (dm.getMax_rate_of_price_increase() == -1){
+            maxRateInfoLabel.setText("Не было ставок в данном туре. Лидер "+dm.getLeaderName());
+        } else {
+            maxRateInfoLabel.setText("Ставка " +dm.returnRightView(dm.getMax_rate_of_price_increase()) + ". Лидер "+dm.getLeaderName() + ". Текущая цена " + dm.getNowPrice());
+        }
+    }//GEN-LAST:event_seeMaxRateButtonActionPerformed
+
+    private void nextTourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTourButtonActionPerformed
+        // TODO add your handling code here:
+        int n = 3;
+        dm.modelingManualAuction(n, countStepInfoLabel);
+        maxRateInfoLabel.setText("");
+        if (dm.getMax_rate_of_price_increase() == -1){
+            seeParticipantsParamsButton.setVisible(false);
+        } else {
+            seeParticipantsParamsButton.setVisible(true);
+        }
+        if (dm.checkEndAuction(n)){
+            nextTourButton.setVisible(false);
+            endTourButton.setVisible(true);            
+        }
+    }//GEN-LAST:event_nextTourButtonActionPerformed
+
+    private void endTourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endTourButtonActionPerformed
+        // TODO add your handling code here:
+        nextTourButton.setVisible(true);
+        endTourButton.setVisible(false);
+        oneTourDialog.setVisible(false);
+        resultStepDialog.setVisible(true);
+        leaderLabel.setText(dm.getLeaderName());
+        priceLabel.setText(String.valueOf(dm.getLeaderPrice()));
+        if (dm.isPrevLots()){
+            seeHistoryButton.setVisible(true);
+        } else {                
+            seeHistoryButton.setVisible(false);
+        }
+    }//GEN-LAST:event_endTourButtonActionPerformed
+
+    private void seeInfoLotOrAllLotsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeInfoLotOrAllLotsButtonActionPerformed
+        // TODO add your handling code here:
+        if (allLotsRadioButton.isSelected()){
+            chooseWhatLotSeeDialog.setVisible(false);
+            allLotsInTableDialog.setVisible(true);
+            prevLotsInfoTable.setModel(dm.drawTableLotsModel());
+        }
+        else if(concreteLotRadioButton.isSelected()){
+            chooseWhatLotSeeDialog.setVisible(false);
+            prevLotsComboBox.removeAllItems();
+            Collection<String> items = dm.getNamesPrevLots().values();
+            int i = 0;
+            for (String s : items){
+                i++;
+                if (i != items.size()){
+                    prevLotsComboBox.addItem(s);
+                }
+            }
+            seePrevLotChangesButton.setVisible(true);
+            closeHistoryButton.setVisible(true);
+            choosePrevLotDialog.setVisible(true);
+        }
+    }//GEN-LAST:event_seeInfoLotOrAllLotsButtonActionPerformed
+
+    private void concreteLotRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concreteLotRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_concreteLotRadioButtonActionPerformed
+
+    private void closePrevTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closePrevTableButtonActionPerformed
+        // TODO add your handling code here:
+        this.chooseWhatLotSeeDialog.setVisible(true);
+        this.allLotsInTableDialog.setVisible(false);
+    }//GEN-LAST:event_closePrevTableButtonActionPerformed
+
+    private void closeAllLotsHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeAllLotsHistoryButtonActionPerformed
+        // TODO add your handling code here:
+        allLotsInTableDialog.setVisible(false);
+        resultStepDialog.setVisible(true);
+        prevSellInfoLabel.setText("Приобрёл ... за ....");
+    }//GEN-LAST:event_closeAllLotsHistoryButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog allLotsInTableDialog;
+    private javax.swing.JRadioButton allLotsRadioButton;
     private javax.swing.JRadioButton autoRadioButton;
     private javax.swing.JDialog chooseExitOrNextDialog;
     private javax.swing.JPanel chooseExitOrNextPanel;
@@ -1818,13 +2236,23 @@ public class GraphJFrame extends javax.swing.JFrame {
     private javax.swing.JDialog choosePrevLotDialog;
     private javax.swing.JLabel choosePrevLotLabel;
     private javax.swing.JPanel choosePrevLotPanel;
+    private javax.swing.JPanel choosePrevLotPanel1;
+    private javax.swing.JDialog chooseWhatLotSeeDialog;
+    private javax.swing.JLabel chooseWhatLotSeeLabel;
+    private javax.swing.JPanel chooseWhatLotSeePanel;
     private javax.swing.JButton closeAllButton;
+    private javax.swing.JButton closeAllLotsHistoryButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JButton closeHistoryButton;
     private javax.swing.JButton closePrevGraphButton;
+    private javax.swing.JButton closePrevTableButton;
     private javax.swing.JButton closeShowParamsButton;
+    private javax.swing.JRadioButton concreteLotRadioButton;
+    private javax.swing.JLabel countStepInfoLabel;
+    private javax.swing.JButton endTourButton;
     private javax.swing.JButton exitAuctionButton;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel leaderInfoLabel;
     private javax.swing.JLabel leaderLabel;
     private javax.swing.JRadioButton lot10RadioButton;
@@ -1877,14 +2305,20 @@ public class GraphJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton lot7RadioButton;
     private javax.swing.JRadioButton lot8RadioButton;
     private javax.swing.JRadioButton lot9RadioButton;
+    private javax.swing.ButtonGroup lotOrAllLotsButtonGroup;
     private javax.swing.ButtonGroup lotsButtonGroup;
     private javax.swing.JRadioButton manualRadioButton;
+    private javax.swing.JLabel maxRateInfoLabel;
     private javax.swing.ButtonGroup modeButtonGroup;
     private javax.swing.JButton nextLotButton;
+    private javax.swing.JButton nextTourButton;
+    private javax.swing.JDialog oneTourDialog;
+    private javax.swing.JPanel oneTourPanel;
     private javax.swing.JTable parametersTable;
     private javax.swing.JLabel participantLabel;
     private javax.swing.JComboBox<String> partiсipantsComboBox;
     private javax.swing.JComboBox<String> prevLotsComboBox;
+    private javax.swing.JTable prevLotsInfoTable;
     private javax.swing.JLabel prevSellInfoLabel;
     private javax.swing.JLabel priceInfoLabel;
     private javax.swing.JLabel priceLabel;
@@ -1892,7 +2326,11 @@ public class GraphJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel resultStepPanel;
     private javax.swing.JButton seeDynamicPriceButton;
     private javax.swing.JButton seeHistoryButton;
+    private javax.swing.JButton seeInfoLotOrAllLotsButton;
+    private javax.swing.JButton seeMaxRateButton;
     private javax.swing.JButton seeParamsParticipantsButton;
+    private javax.swing.JButton seeParticipantsParamsButton;
+    private javax.swing.JButton seePeopleParamsButton;
     private javax.swing.JButton seePersonParamsButton;
     private javax.swing.JButton seePrevLotChangesButton;
     private javax.swing.JButton sellButton;

@@ -5,6 +5,7 @@
 package mephi2023.english_auction.counting;
 
 import java.util.ArrayList;
+import mephi2023.english_auction.work_with_files.DataReader;
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
 
@@ -13,15 +14,35 @@ import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
  * @author Kseny
  */
 public class CountFCL {
-    private static FIS ReadFCL(String fileName){
+    /*private static FIS ReadFCL(String fileName){
         FIS fis = FIS.load(fileName,true);
         if( fis == null ) { 
             System.err.println("Can't load file: '" + fileName + "'");
             return null;
         }
         return fis;
+    }*/
+    
+    public static double countCoef(String file_name, String res_name, 
+            ArrayList<String> param_names, ArrayList<Object> values){
+        FIS fis = DataReader.ReadFCL(file_name);      
+        System.out.print(" { ");
+        for (int j = 0; j < param_names.size(); j++) {
+            System.out.print(values.get(j) + " ");
+            fis.setVariable(param_names.get(j), Double.parseDouble(String.valueOf(values.get(j))));
+        }
+        fis.evaluate();   
+        System.out.print("} => ");
+        System.out.println(fis.getVariable(res_name).getValue()); 
+        return fis.getVariable(res_name).getValue();
     }
     
+    public static void checkCount(double value, String name) throws Exception{
+        if (value == (-2.0)){
+            throw new Exception("WRONG VALUE IN " + name);
+        }
+    }
+    /*
     public static void draw(FIS fis){
         JFuzzyChart.get().chart(fis);
         // Set inputs
@@ -37,9 +58,9 @@ public class CountFCL {
         // Print ruleSet
         //System.out.println(fis);
         System.out.println("Output value:" + fis.getVariable("D").getValue());
-        /*System.out.println("Output value:" + fis.getVariable("coef_rarity").getValue());
+        System.out.println("Output value:" + fis.getVariable("coef_rarity").getValue());
         System.out.println("Output value:" + fis.getVariable("coef_fame").getValue());
-        System.out.println("Output value:" + fis.getVariable("coef_significance").getValue());*/
+        System.out.println("Output value:" + fis.getVariable("coef_significance").getValue());
     
     }
     
@@ -50,7 +71,7 @@ public class CountFCL {
         fis.setVariable("dif", -0.75);
         fis.evaluate();
         System.out.println("Output value:" + fis.getVariable("acceptability").getValue());    
-    }
+    }*/
     
 /*    public static double countCoefD(String file_name, String res_name, 
             ArrayList<String> param_names, ArrayList<Object> values){
@@ -62,21 +83,7 @@ public class CountFCL {
         System.out.println(fis.getVariable(res_name).getValue()); 
         return fis.getVariable(res_name).getValue();
     }*/
-    public static double countCoef(String file_name, String res_name, 
-            ArrayList<String> param_names, ArrayList<Object> values){
-        FIS fis = ReadFCL(file_name);      
-        System.out.print(" { ");
-        for (int j = 0; j < param_names.size(); j++) {
-            System.out.print(values.get(j) + " ");
-            fis.setVariable(param_names.get(j), Double.parseDouble(String.valueOf(values.get(j))));
-        }
-        fis.evaluate();   
-        System.out.print("} => ");
-        System.out.println(fis.getVariable(res_name).getValue()); 
-        return fis.getVariable(res_name).getValue();
-    }
-    
-    public static double countCoefPrice(String file_name, ArrayList<String> res_names, 
+    /*public static double countCoefPrice(String file_name, ArrayList<String> res_names, 
             ArrayList<String> param_names, ArrayList<Object> values){
         FIS fis = ReadFCL(file_name);       
         for (int j = 0; j < param_names.size(); j++) {
@@ -127,10 +134,5 @@ public class CountFCL {
         System.out.println("***");
         return res;
     }
-    
-    public static void checkCount(double value, String name) throws Exception{
-        if (value == (-2.0)){
-            throw new Exception("WRONG VALUE IN " + name);
-        }
-    }
+    */
 }
