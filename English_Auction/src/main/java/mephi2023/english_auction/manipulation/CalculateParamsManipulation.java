@@ -268,15 +268,43 @@ public class CalculateParamsManipulation {
             double share_win_lots = p.getCount_win()/p.getCount_take_part();
             double avg_level_rise_price = p.getAll_rise_prices().stream().reduce((x, y) -> x + y).get()/p.getAll_rise_prices().size();
             count_take_part_lots = (count_take_part_lots - min_count_take_part_lots)/(max_count_take_part_lots - min_count_take_part_lots);
+            
+            if (max_count_take_part_lots == min_count_take_part_lots){
+                count_take_part_lots = max_count_take_part_lots;
+            }
             ceiling_price = (ceiling_price - min_ceiling_price)/(max_ceiling_price - min_ceiling_price);
+            if (max_ceiling_price == min_ceiling_price){
+                ceiling_price = max_ceiling_price;
+            }
             max_level_rise_price = (max_level_rise_price - min_max_level_rise_price)/(max_max_level_rise_price - min_max_level_rise_price);
+            if (max_max_level_rise_price == min_max_level_rise_price){
+                max_level_rise_price = max_max_level_rise_price;
+            }
             share_rates = (share_rates - min_share_rates)/(max_share_rates - min_share_rates);
+            if (max_share_rates == min_share_rates){
+                share_rates = max_share_rates;
+            }
             money = (money - min_money)/(max_money - min_money);
+            if (max_money == min_money){
+                money = max_money;
+            }
             avarice = (avarice - min_avarice)/(max_avarice - min_avarice);
+            if (max_avarice == min_avarice){
+                avarice = max_avarice;
+            }
             count_lose_lots = (count_lose_lots - min_count_lose_lots)/(max_count_lose_lots - min_count_lose_lots);
+            if (max_count_lose_lots == min_count_lose_lots){
+                count_lose_lots = max_count_lose_lots;
+            }
             share_win_lots = (share_win_lots - min_share_win_lots)/(max_share_win_lots - min_share_win_lots);
+            if (max_share_win_lots == min_share_win_lots){
+                share_win_lots = max_share_win_lots;
+            }
             avg_level_rise_price = (avg_level_rise_price - min_avg_level_rise_price)/(max_avg_level_rise_price - min_avg_level_rise_price);
 
+            if (max_avg_level_rise_price == min_avg_level_rise_price){
+                avg_level_rise_price = max_avg_level_rise_price;
+            }
             //спекулянт-коллекционер
             count_take_part_lots = changeBounds(count_take_part_lots, 5, 1);
             ceiling_price = changeBounds(ceiling_price, 5, 1);
